@@ -1,0 +1,16 @@
+import Foundation
+
+// _sourcery:inline:{{ argument.moduleName }}Module.UnwrapModuleDependencyImports
+// _sourcery:end
+
+// sourcery: Module = "Cantina{{ argument.moduleName }}"
+final public class {{ argument.moduleName }}Module: {{ argument.moduleName }}ModuleOutput {
+    private let injection: {{ argument.moduleName }}ModuleDependency
+
+    public init(injection: {{ argument.moduleName }}ModuleDependency) {
+        self.injection = injection
+    }
+}
+
+// _sourcery:inline:{{ argument.moduleName }}Module.UnwrapModuleDependency
+// _sourcery:end

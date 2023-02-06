@@ -1,0 +1,20 @@
+{% macro accessLevel level %}{% if level != 'internal' %}{{ level }} {% endif %}{% endmacro %}
+
+{% for type in types.protocols where type|annotated:"MockableInjection" %}
+{% for import in type.imports %}
+import {{ import.moduleName }}
+{% endfor %}
+{% endfor %}
+
+
+{% for type in types.protocols where type|annotated:"MockableInjection" %}
+{% call accessLevel type.accessLevel %}final class {{ type.name }}Mock: {{ type.name }} {
+{% for variable in type.allVariables|!definedInExtension %}
+    {% if variable.type|annotated:"MockableInjection"%}
+    let {{ variable.name }}: {{ variable.typeName }} = {{ variable.typeName }}Mock()
+    {% else %}
+    let {{ variable.name }}: {{ variable.typeName }} = {{ variable.typeName }}Mock.defaultsInitedMock()
+    {% endif %}
+{% endfor %}
+}
+{% endfor %}

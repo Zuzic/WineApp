@@ -1,0 +1,26 @@
+disabled_rules:
+- trailing_whitespace
+- force_cast
+- switch_case_alignment
+- for_where
+- nesting
+- opening_brace
+- trailing_comma
+- superfluous_disable_command
+- type_name
+
+opt_in_rules:
+- sorted_imports
+
+cyclomatic_complexity: 25
+line_length: 200
+identifier_name:
+  min_length: 1
+  allowed_symbols: "_"
+
+function_body_length: 60
+file_length: 1000
+  
+excluded:
+  - "**/Generated"
+  - "**/*.generated.swift"

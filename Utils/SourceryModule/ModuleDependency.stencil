@@ -1,0 +1,13 @@
+// sourcery: ModuleDependecy = "Cantina{{ argument.moduleName }}"
+public protocol {{ argument.moduleName }}ModuleDependency {
+    var settings: {{ argument.moduleName }}ModuleSettings { get }
+    var features: {{ argument.moduleName }}ModuleFeatures { get }
+}
+
+// sourcery: ModuleSettings = "Cantina{{ argument.moduleName }}"
+public protocol {{ argument.moduleName }}ModuleSettings: AnyObject {
+}
+
+// sourcery: ModuleFeatures = "Cantina{{ argument.moduleName }}"
+public protocol {{ argument.moduleName }}ModuleFeatures: AnyObject {
+}

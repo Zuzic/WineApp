@@ -1,0 +1,45 @@
+{% macro propertyName variable %}{% for prop in type[argument.injectorName].allVariables where prop.typeName|hasSuffix:variable.typeName %}{{ prop.name }}{% empty %}{{ variable.name }}{% endfor %}{% endmacro %}
+
+{% for protocol in types.protocols where protocol.name|hasSuffix:"Injection" %}
+{% for import in protocol.imports %}
+import {{ import.moduleName }}
+{% endfor %}
+{% endfor %}
+
+{# {% for var in type[argument.injectorName].allVariables %}
+    {{ var }}
+
+{% endfor %} #}
+
+{% for protocol in types.protocols %}{% if protocol.name|hasSuffix:"Injection" %}
+// MARK: - {{ protocol.name }}
+
+final class {{ protocol.name }}Impl: {{ protocol.name }} {
+    private let injector: {{ argument.injectorName }}
+    fileprivate init(injector: {{ argument.injectorName }}) {
+        self.injector = injector
+    }
+    {% for variable in protocol.allVariables|!definedInExtension %}
+
+    var {{ variable.name }}: {{ variable.typeName }} {
+        {% if variable.typeName|hasSuffix:"Injection" %}
+        {{ variable.typeName }}Impl(injector: injector)
+        {% else %}
+        {% set varPath %}{% if variable|annotated:"origin" %}{{ variable.annotations.origin }}{% elif variable|annotated:"module" %}{{ variable.name }}{% else %}{% call propertyName variable %}{% endif %}{% endset %}
+        {% set modulePath %}{% if variable|annotated:"module" %}{{ variable.annotations.module }}ModuleOutput.{% endif %}{% endset %}
+        {% set settingsPath %}{% if variable|annotated:"settings" %}settings.{% endif %}{% endset %}
+        {% set featurePath %}{% if variable|annotated:"features" %}features.{% endif %}{% endset %}
+        injector.{{ modulePath}}{{ settingsPath }}{{ featurePath }}{{ varPath }}
+        {% endif %}
+    }
+    {% endfor %}
+}
+
+{% if protocol|annotated:"builder" %}
+extension {{ argument.injectorName }} {
+    func build() -> {{ protocol.name }} {
+        {{ protocol.name }}Impl(injector: self)
+    }
+}
+{% endif %}
+{% endif %}{% endfor %}

@@ -1,0 +1,73 @@
+{% macro keyName variable %}{% if variable|annotated:"key" %}"{{ variable.annotations.key }}"{% else %}"{{ variable.name }}"{% endif %}{% endmacro %}
+{% macro keyType variable %}{% if variable|annotated:"json" %}String{% else %}{{ variable.typeName }}{% endif %}{% endmacro %}
+{% macro addValueTransform variable %}{% if variable|annotated:"json" %}, let value = {{ variable.typeName }}.create(json: value){% endif %}{% endmacro %}
+
+{% for type in types.all where type|annotated:"init" %}
+// sourcery:inline:auto:{{ type.name }}.Init
+    {% if type.annotations.init.dictionary %}
+    init?(dictionary: [AnyHashable: Any]) {
+        {% for variable in type.variables|!definedInExtension|!annotated:"skip" %}
+        if let value = dictionary[{% call keyName variable %}] as? {% call keyType variable %}{% call addValueTransform variable %} {
+            self.{{ variable.name }} = value
+        } else {
+            {% if variable.isOptional %}self.{{ variable.name }} = nil{% else %}return nil{% endif %}
+        }
+        {% endfor %}
+    }
+    {% endif %}
+    {% if type.annotations.init.json %}
+    static func create(json: String) -> Self? {
+        guard let data = json.data(using: .utf8) else {
+            return nil
+        }
+        do {
+            return try JSONDecoder().decode(Self.self, from: data)
+        } catch {
+            return nil
+        }
+    }
+    {% endif %}
+    {% if type.annotations.init.protocol %}
+    convenience init(source: {{ type.annotations.init.protocol }}) {
+        {% for protocol in types.protocols where protocol.name == type.annotations.init.protocol %}
+            {% for var in protocol.variables %}
+        self.{{ var.name }} = source.{{ var.name }}
+            {% endfor %}
+        {% endfor %}
+    }
+    {% endif %}
+// sourcery:end
+{% endfor %}
+
+{% for type in types.all where type|annotated:"populate" %}
+// sourcery:inline:auto:{{ type.name }}.Populate
+     {% if type.annotations.populate.dictionary %}
+    func populate(dictionary: [AnyHashable: Any]) {
+        {% for variable in type.variables|!definedInExtension|!annotated:"skip" %}
+        if let value = dictionary[{% call keyName variable %}] as? {% call keyType variable %}{% call addValueTransform variable %} {
+            self.{{ variable.name }} = value
+        }
+        {% endfor %}
+    }
+    {% endif %}
+    {% if type.annotations.populate.protocol %}
+    func populate(source: {{ type.annotations.populate.protocol }}) {
+        {% for protocol in types.protocols where protocol.name == type.annotations.populate.protocol %}
+            {% for var in protocol.variables %}
+        self.{{ var.name }} = source.{{ var.name }}
+            {% endfor %}
+        {% endfor %}
+    }
+    {% endif %}
+    {% if type.annotations.populate.struct %}
+    func populate(source: {{ type.annotations.populate.struct }}) {
+        {% for struct in types.structs where struct.name == type.annotations.populate.struct %}
+            {% for var in struct.variables %}
+        self.{{ var.name }} = source.{{ var.name }}
+            {% endfor %}
+        {% endfor %}
+    }
+    {% endif %}
+// sourcery:end
+{% endfor %}
+    

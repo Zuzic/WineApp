@@ -1,0 +1,62 @@
+// sourcery:inline:Injector.ModuleImports
+{% for type in types.protocols where type|annotated:"ModuleDependecy" %}
+import {{ type.annotations.ModuleDependecy }}
+{% endfor %}
+// sourcery:end
+
+// sourcery:inline:Injector.ModuleDefenition
+{% for type in types.protocols where type|annotated:"ModuleOutput" %}
+@LazyAtomic private(set) var {{ type.name|lowerFirstLetter }}: {{ type.name }}
+{% endfor %}
+// sourcery:end
+
+// sourcery:inline:Injector.ModuleInitialization
+{% for type in types.classes where type|annotated:"Module" %}
+    {% for name in type.implements %}
+        {% if type.implements[name]|annotated:"ModuleOutput" %} 
+_{{ name|lowerFirstLetter }}.initializer = { [unowned self] in {{ type.name }}(injection: build()) }
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+// sourcery:end
+
+
+// sourcery:inline:Injector.UnwrapModuleOutputs
+// swiftlint: disable: identifier_name
+extension Injector {
+{% for type in types.protocols where type|annotated:"ModuleOutput" %}
+    // MARK: - {{ type.name }}
+{% for variable in type.allVariables|!definedInExtension %}
+    var {{ type.name|lowerFirstLetter }}{{ variable.name|upperFirstLetter }}: {{ type.annotations.ModuleOutput }}.{{ variable.typeName }} { {{ type.name|lowerFirstLetter }}.{{ variable.name }} }
+{% endfor %}
+
+{% endfor %}
+}
+// sourcery:end
+
+
+// sourcery:inline:Injector.Settings.Imports
+{% for type in types.protocols where type|annotated:"ModuleSettings" %}
+import {{ type.annotations.ModuleSettings }}
+{% endfor %}
+// sourcery:end
+
+// sourcery:inline:Injector.Settings
+{% for type in types.protocols where type|annotated:"ModuleSettings" %}
+extension Settings: {{ type.name }} {}
+{% endfor %}
+// sourcery:end
+
+
+// sourcery:inline:Injector.Features.Imports
+{% for type in types.protocols where type|annotated:"ModuleFeatures" %}
+import {{ type.annotations.ModuleFeatures }}
+import CantinaCommon
+{% endfor %}
+// sourcery:end
+
+// sourcery:inline:Injector.Features
+{% for type in types.protocols where type|annotated:"ModuleFeatures" %}
+extension Features: {{ type.name }} {}
+{% endfor %}
+// sourcery:end

@@ -1,0 +1,24 @@
+// swift-tools-version:5.7
+import PackageDescription
+
+let package = Package(
+    name: "Cantina{{ argument.moduleName }}",
+    platforms: [
+        .iOS(.v16),
+    ],
+    products: [
+        .library(name: "Cantina{{ argument.moduleName }}", targets: ["Cantina{{ argument.moduleName }}"]),
+    ],
+    dependencies: [
+        .package(path: "../SourceryPlugin"),
+    ],
+    targets: [
+        .target(
+            name: "Cantina{{ argument.moduleName }}",
+            dependencies: [],
+            plugins: [
+                .plugin(name: "SourceryPlugin", package: "SourceryPlugin"),
+            ]
+        ),
+    ]
+)

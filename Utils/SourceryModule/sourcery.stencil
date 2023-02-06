@@ -1,0 +1,22 @@
+sources:
+  include:
+    - ./
+  exclude:
+    - ./Generated/
+
+templates:
+  - ../../../../Utils/Sourcery/
+
+forceParse:
+  - UnwrapModuleDependency
+
+output:
+  ./Generated/
+
+args:
+  moduleName: {{ argument.moduleName }}
+  injectorName: {{ argument.moduleName }}Module
+  autoMockableImports:
+    - Combine
+    - SwiftUI
+  

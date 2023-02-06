@@ -1,0 +1,49 @@
+{% macro caseMethodDefineArguments method%}{% map method.parameters into names using parameter%}{{ parameter.typeName|replace:"@escaping ","" }}{% endmap %}{%if names%}({{ names|join:", " }}){% endif %}{% endmacro %}
+{% macro caseVariableDefineArguments type variable %}{% for method in type.allMethods where method.name|hasPrefix:variable.defaultValue %}{% map method.parameters into names using parameter %}{{ parameter.typeName }}{% endmap %}{% if names %}({{ names|join:", " }}){% endif %}{% endfor %}{% endmacro %}
+
+{% macro caseMethodArguments method %}{% map method.parameters into names using parameter %}let {{ parameter.name }}{% endmap %}{% if names %}({{ names|join:", " }}){% endif %}{% endmacro %}
+{% macro caseVariableArguments type variable %}{% for method in type.allMethods where method.name|hasPrefix:variable.defaultValue %}{% map method.parameters into names using parameter %}let {{ parameter.name }}{% endmap %}{% if names %}({{ names|join:", " }}){% endif %}{% endfor %}{% endmacro %}
+
+{% macro callMethodArguments method %}{% map method.parameters into names using parameter %}{{ parameter.name }}:{{ parameter.name }}{% endmap %}{% if names %}{{ names|join:", " }}{% endif %}{% endmacro %}
+{% macro callVariableArguments type variable %}{% for method in type.allMethods where method.name|hasPrefix:variable.defaultValue %}{% map method.parameters into names using parameter %}{{ parameter.name }}{% endmap %}{% if names %}, {{ names|join:", " }}{% endif %}{% endfor %}{% endmacro %}
+
+{% for type in types.classes where type.isFinal and type.based.NavigationCoordinatable %}
+// sourcery:inline:auto:{{ type.name }}.NavigationCoordinatable
+    enum NavigationRoute {
+        {% for variable in type.allVariables %}{% for attr in variable.attributes where attr == "Route" %}
+        case {{ variable.name }}{% call caseVariableDefineArguments type variable %}
+        {% endfor %}{% endfor %}
+        
+        {% for method in type.allMethods where method|annotated:"route" %}
+        case {{ method.callName }}{% call caseMethodDefineArguments method %}
+        {% endfor %}
+
+        case pop
+        case popToRoot
+        case dismiss
+        
+        // Routable: annotation for the navigation func is "route"
+    }
+// sourcery:end
+
+import Stinsen
+
+extension NavigationRouter where T == {{ type.name }} {
+    func navigate(to: {{ type.name }}.NavigationRoute) {
+        switch to {
+        case .pop: pop()
+        case .popToRoot: popToRoot()
+        case .dismiss: dismissCoordinator()
+
+        {% for variable in type.allVariables %}{% for attr in variable.attributes where attr == "Route" %}
+        case .{{ variable.name }}{% call caseVariableArguments type variable %}: route(to: \.{{ variable.name }}{% call callVariableArguments type variable %})
+        {% endfor %}{% endfor %}
+        
+        {% for method in type.allMethods where method|annotated:"route" %}
+        case .{{ method.callName }}{% call caseMethodArguments method %}: coordinator.{{ method.callName }}({% call callMethodArguments method %})
+        {% endfor %}
+        }
+    }
+}
+
+{% endfor %}

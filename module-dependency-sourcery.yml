@@ -1,0 +1,11 @@
+sources:
+  include:
+    - ./Packages/
+    - ./Cantina/Assembly
+
+templates:
+  - ./Utils/ModuleDependencyImpl.stencil
+  - ./Utils/InlineGeneration.stencil
+  
+output:
+  ./Cantina/Generated/

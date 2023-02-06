@@ -1,0 +1,31 @@
+{% for type in types.protocols where type|annotated:"ModuleDependecy" %}
+{% for import in type.imports %}
+import {{ import.moduleName }}
+{% endfor %}
+import {{ type.annotations.ModuleDependecy }}
+{% endfor %}
+
+{% for type in types.protocols where type|annotated:"ModuleDependecy" %}
+// MARK: - {{ type.name }}
+
+final class {{ type.name }}Impl: {{ type.annotations.ModuleDependecy }}.{{ type.name }} {
+    private let injector: Injector
+    init(injector: Injector) {
+        self.injector = injector
+    }
+
+    {% for variable in type.allVariables|!definedInExtension %}
+    {% set varPath %}{% if variable|annotated:"origin" %}{{ variable.annotations.origin }}{% else %}{{ variable.name }}{% endif %}{% endset %}
+    {% set modulePath %}{% if variable|annotated:"module" %}{{ variable.annotations.module }}ModuleOutput.{% endif %}{% endset %}
+    {% set settingsPath %}{% if variable|annotated:"settings" %}settings.{% endif %}{% endset %}
+    {% set featuresPath %}{% if variable|annotated:"features" %}features.{% endif %}{% endset %}
+    var {{ variable.name }}: {{ variable.typeName }} { injector.{{ modulePath }}{{ settingsPath }}{{ featuresPath }}{{ varPath }} }
+    {% endfor %}
+} 
+
+extension Injector {
+    func build() -> {{ type.name }} {
+        {{ type.name }}Impl(injector: self)
+    }
+}
+{% endfor %}

@@ -1,0 +1,18 @@
+// sourcery:inline:{{ argument.injectorName }}.UnwrapModuleDependencyImports
+{% for protocol in types.protocols where protocol|annotated:"ModuleDependecy" %}
+{% for import in protocol.imports %}
+import {{ import.moduleName }}
+{% endfor %}
+{% endfor %}
+// sourcery:end
+
+// sourcery:inline:{{ argument.injectorName }}.UnwrapModuleDependency
+// swiftlint: disable: identifier_name
+extension {{ argument.injectorName }} {
+{% for type in types.protocols where type|annotated:"ModuleDependecy" %}
+{% for variable in type.allVariables|!definedInExtension %}
+    var {{ type.name|lowerFirstLetter }}{{ variable.name|upperFirstLetter }}: {{ variable.typeName }} { injection.{{ variable.name }} }
+{% endfor %}
+{% endfor %}
+}
+// sourcery:end

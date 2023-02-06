@@ -1,0 +1,17 @@
+sources:
+  include:
+    - ./CantinaApp/
+  exclude:
+    - ./CantinaApp/Generated/
+
+templates:
+  - ./Utils/Sourcery/
+
+forceParse:
+  - UnwrapModuleOutputs
+
+output:
+  ./CantinaApp/Generated/
+
+args:
+  injectorName: Injector
