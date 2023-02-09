@@ -11,11 +11,14 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../SourceryPlugin"),
+        .package(path: "../Cantina-ios-logger"),
     ],
     targets: [
         .target(
             name: "Cantina{{ argument.moduleName }}",
-            dependencies: [],
+            dependencies: [
+                .product(name: "CantinaLogger", package: "Cantina-ios-logger"),
+            ],
             plugins: [
                 .plugin(name: "SourceryPlugin", package: "SourceryPlugin"),
             ]
