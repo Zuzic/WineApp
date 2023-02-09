@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "Cantina{{ argument.moduleName }}",
+    name: "CantinaClient",
     platforms: [
         .iOS(.v16),
     ],
     products: [
-        .library(name: "Cantina{{ argument.moduleName }}", targets: ["Cantina{{ argument.moduleName }}"]),
+        .library(name: "CantinaClient", targets: ["CantinaClient"]),
     ],
     dependencies: [
         .package(path: "../SourceryPlugin"),
@@ -15,7 +15,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Cantina{{ argument.moduleName }}",
+            name: "CantinaClient",
             dependencies: [
                 .product(name: "StreamsCommon", package: "streamscloud-ios-common"),
                 .product(name: "StreamsLogger", package: "streamscloud-ios-common"),

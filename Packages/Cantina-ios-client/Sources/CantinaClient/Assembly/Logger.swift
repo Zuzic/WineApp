@@ -1,7 +1,7 @@
 import StreamsLogger
 
 enum Logger: String, StreamsLogger.Logger {
-    var scope: String { "{{ argument.moduleName }}:\(rawValue)".uppercased() }
+    var scope: String { "Client:\(rawValue)".uppercased() }
 
     case general
 }

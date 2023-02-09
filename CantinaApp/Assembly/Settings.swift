@@ -1,6 +1,7 @@
 import CoreData
 import Foundation
 // sourcery:inline:Injector.Settings.Imports
+import CantinaClient
 
 // sourcery:end
 import CantinaAssets
@@ -14,4 +15,5 @@ final class Settings {
 }
 
 // sourcery:inline:Injector.Settings
+extension Settings: ClientModuleSettings {}
 // sourcery:end

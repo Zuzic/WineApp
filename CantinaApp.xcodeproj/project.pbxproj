@@ -11,31 +11,24 @@
 		112A8F6B299571E900B15BB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F60299571E900B15BB5 /* Settings.swift */; };
 		112A8F6C299571E900B15BB5 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F61299571E900B15BB5 /* Injector.swift */; };
 		112A8F6D299571E900B15BB5 /* ModuleDependencyImpl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F63299571E900B15BB5 /* ModuleDependencyImpl.generated.swift */; };
-		112A8F6E299571E900B15BB5 /* Injections.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F64299571E900B15BB5 /* Injections.generated.swift */; };
-		112A8F6F299571E900B15BB5 /* Mockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F65299571E900B15BB5 /* Mockable.generated.swift */; };
-		112A8F70299571E900B15BB5 /* Routable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F66299571E900B15BB5 /* Routable.generated.swift */; };
 		112A8F71299571E900B15BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F68299571E900B15BB5 /* ContentView.swift */; };
 		112A8F742995721600B15BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A8F732995721600B15BB5 /* Assets.xcassets */; };
-		112A8F782995764F00B15BB5 /* CantinaAssets in Frameworks */ = {isa = PBXBuildFile; productRef = 112A8F772995764F00B15BB5 /* CantinaAssets */; };
-		112A8F7A2995764F00B15BB5 /* StreamsCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 112A8F792995764F00B15BB5 /* StreamsCommon */; };
-		112A8F7C2995764F00B15BB5 /* StreamsLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 112A8F7B2995764F00B15BB5 /* StreamsLogger */; };
+		1161D31929957CA000A8DAB7 /* CantinaAssets in Frameworks */ = {isa = PBXBuildFile; productRef = 1161D31829957CA000A8DAB7 /* CantinaAssets */; };
+		1161D31C29957D5B00A8DAB7 /* CantinaClient in Frameworks */ = {isa = PBXBuildFile; productRef = 1161D31B29957D5B00A8DAB7 /* CantinaClient */; };
 		11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ABF37329912E89000C8168 /* CantinaAppApp.swift */; };
 		11ABF37C29912E8A000C8168 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		112A8F5C2995714A00B15BB5 /* Cantina-ios-assets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-assets"; path = "Packages/Cantina-ios-assets"; sourceTree = "<group>"; };
 		112A8F5E299571E900B15BB5 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		112A8F60299571E900B15BB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		112A8F61299571E900B15BB5 /* Injector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		112A8F63299571E900B15BB5 /* ModuleDependencyImpl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleDependencyImpl.generated.swift; sourceTree = "<group>"; };
-		112A8F64299571E900B15BB5 /* Injections.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injections.generated.swift; sourceTree = "<group>"; };
-		112A8F65299571E900B15BB5 /* Mockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.generated.swift; sourceTree = "<group>"; };
-		112A8F66299571E900B15BB5 /* Routable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routable.generated.swift; sourceTree = "<group>"; };
 		112A8F68299571E900B15BB5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		112A8F732995721600B15BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		112A8F75299575EA00B15BB5 /* streamscloud-ios-common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "streamscloud-ios-common"; path = "Packages/streamscloud-ios-common"; sourceTree = "<group>"; };
-		1167263829955F46003BD233 /* SourceryPlugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SourceryPlugin; path = Packages/SourceryPlugin; sourceTree = "<group>"; };
+		1161D31729957C7400A8DAB7 /* Cantina-ios-assets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-assets"; path = "Packages/Cantina-ios-assets"; sourceTree = "<group>"; };
+		1161D31A29957D3700A8DAB7 /* Cantina-ios-client */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-client"; path = "Packages/Cantina-ios-client"; sourceTree = "<group>"; };
+		117E088429957B1400A5D2D1 /* SourceryPlugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SourceryPlugin; path = Packages/SourceryPlugin; sourceTree = "<group>"; };
 		11ABF37029912E89000C8168 /* CantinaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CantinaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ABF37329912E89000C8168 /* CantinaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantinaAppApp.swift; sourceTree = "<group>"; };
 		11ABF37929912E8A000C8168 /* CantinaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CantinaApp.entitlements; sourceTree = "<group>"; };
@@ -47,9 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112A8F782995764F00B15BB5 /* CantinaAssets in Frameworks */,
-				112A8F7C2995764F00B15BB5 /* StreamsLogger in Frameworks */,
-				112A8F7A2995764F00B15BB5 /* StreamsCommon in Frameworks */,
+				1161D31C29957D5B00A8DAB7 /* CantinaClient in Frameworks */,
+				1161D31929957CA000A8DAB7 /* CantinaAssets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,9 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				112A8F63299571E900B15BB5 /* ModuleDependencyImpl.generated.swift */,
-				112A8F64299571E900B15BB5 /* Injections.generated.swift */,
-				112A8F65299571E900B15BB5 /* Mockable.generated.swift */,
-				112A8F66299571E900B15BB5 /* Routable.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -143,9 +132,9 @@
 		11ABF3822991359A000C8168 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				1167263829955F46003BD233 /* SourceryPlugin */,
-				112A8F5C2995714A00B15BB5 /* Cantina-ios-assets */,
-				112A8F75299575EA00B15BB5 /* streamscloud-ios-common */,
+				117E088429957B1400A5D2D1 /* SourceryPlugin */,
+				1161D31729957C7400A8DAB7 /* Cantina-ios-assets */,
+				1161D31A29957D3700A8DAB7 /* Cantina-ios-client */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -168,9 +157,8 @@
 			);
 			name = CantinaApp;
 			packageProductDependencies = (
-				112A8F772995764F00B15BB5 /* CantinaAssets */,
-				112A8F792995764F00B15BB5 /* StreamsCommon */,
-				112A8F7B2995764F00B15BB5 /* StreamsLogger */,
+				1161D31829957CA000A8DAB7 /* CantinaAssets */,
+				1161D31B29957D5B00A8DAB7 /* CantinaClient */,
 			);
 			productName = CantinaApp;
 			productReference = 11ABF37029912E89000C8168 /* CantinaApp.app */;
@@ -249,12 +237,9 @@
 			files = (
 				112A8F6C299571E900B15BB5 /* Injector.swift in Sources */,
 				11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */,
-				112A8F6E299571E900B15BB5 /* Injections.generated.swift in Sources */,
 				112A8F6D299571E900B15BB5 /* ModuleDependencyImpl.generated.swift in Sources */,
 				112A8F6B299571E900B15BB5 /* Settings.swift in Sources */,
 				112A8F71299571E900B15BB5 /* ContentView.swift in Sources */,
-				112A8F70299571E900B15BB5 /* Routable.generated.swift in Sources */,
-				112A8F6F299571E900B15BB5 /* Mockable.generated.swift in Sources */,
 				112A8F69299571E900B15BB5 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,17 +460,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		112A8F772995764F00B15BB5 /* CantinaAssets */ = {
+		1161D31829957CA000A8DAB7 /* CantinaAssets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CantinaAssets;
 		};
-		112A8F792995764F00B15BB5 /* StreamsCommon */ = {
+		1161D31B29957D5B00A8DAB7 /* CantinaClient */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = StreamsCommon;
-		};
-		112A8F7B2995764F00B15BB5 /* StreamsLogger */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StreamsLogger;
+			productName = CantinaClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
