@@ -14,14 +14,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1167263829955F46003BD233 /* SourceryPlugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SourceryPlugin; path = Packages/SourceryPlugin; sourceTree = "<group>"; };
 		11ABF37029912E89000C8168 /* CantinaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CantinaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ABF37329912E89000C8168 /* CantinaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantinaAppApp.swift; sourceTree = "<group>"; };
 		11ABF37529912E89000C8168 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11ABF37729912E8A000C8168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11ABF37929912E8A000C8168 /* CantinaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CantinaApp.entitlements; sourceTree = "<group>"; };
 		11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		11ABF3832991359A000C8168 /* Cantina-ios-core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-core"; path = "Packages/Cantina-ios-core"; sourceTree = "<group>"; };
-		11ABF384299135A6000C8168 /* SourceryPlugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SourceryPlugin; path = Packages/SourceryPlugin; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +74,7 @@
 		11ABF3822991359A000C8168 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				11ABF3832991359A000C8168 /* Cantina-ios-core */,
-				11ABF384299135A6000C8168 /* SourceryPlugin */,
+				1167263829955F46003BD233 /* SourceryPlugin */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
