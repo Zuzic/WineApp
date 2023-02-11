@@ -1,11 +1,11 @@
 sources:
   include:
     - ./Packages/
-    - ./Cantina/Assembly
+    - ./CantinaApp/Assembly
 
 templates:
   - ./Utils/ModuleDependencyImpl.stencil
   - ./Utils/InlineGeneration.stencil
   
 output:
-  ./Cantina/Generated/
+  ./CantinaApp/Generated/

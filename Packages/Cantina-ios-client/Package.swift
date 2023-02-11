@@ -2,23 +2,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "Cantina{{ argument.moduleName }}",
+    name: "CantinaClient",
     platforms: [
         .iOS(.v16),
     ],
     products: [
-        .library(name: "Cantina{{ argument.moduleName }}", targets: ["Cantina{{ argument.moduleName }}"]),
+        .library(name: "CantinaClient", targets: ["CantinaClient"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/Moya/Moya.git", from: "15.0.0"),
         .package(path: "../SourceryPlugin"),
         .package(path: "../streamscloud-ios-common"),
     ],
     targets: [
         .target(
-            name: "Cantina{{ argument.moduleName }}",
+            name: "CantinaClient",
             dependencies: [
                 .product(name: "StreamsCommon", package: "streamscloud-ios-common"),
                 .product(name: "StreamsLogger", package: "streamscloud-ios-common"),
+                .product(name: "CombineMoya", package: "Moya"),
             ],
             plugins: [
                 .plugin(name: "SourceryPlugin", package: "SourceryPlugin"),
