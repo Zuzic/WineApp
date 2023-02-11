@@ -13,4 +13,8 @@ final public class ClientModule: ClientModuleOutput {
 }
 
 // _sourcery:inline:ClientModule.UnwrapModuleDependency
+// swiftlint: disable: identifier_name
+extension ClientModule {
+    var clientModuleDependencySettings: ClientModuleSettings { injection.settings }
+}
 // _sourcery:end

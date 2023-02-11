@@ -12,6 +12,9 @@ final class Settings {
     
     @UserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
+    
+    @BundleInfo(key: "REST_URL", defaultValue: { "https://zuzic.github.io/CantinaMock" }())
+    var restEndpoint: String
 }
 
 // sourcery:inline:Injector.Settings
