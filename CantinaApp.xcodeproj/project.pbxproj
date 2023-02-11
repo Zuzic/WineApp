@@ -11,12 +11,16 @@
 		112A8F6B299571E900B15BB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F60299571E900B15BB5 /* Settings.swift */; };
 		112A8F6C299571E900B15BB5 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F61299571E900B15BB5 /* Injector.swift */; };
 		112A8F6D299571E900B15BB5 /* ModuleDependencyImpl.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F63299571E900B15BB5 /* ModuleDependencyImpl.generated.swift */; };
-		112A8F71299571E900B15BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F68299571E900B15BB5 /* ContentView.swift */; };
 		112A8F742995721600B15BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A8F732995721600B15BB5 /* Assets.xcassets */; };
 		1161D31929957CA000A8DAB7 /* CantinaAssets in Frameworks */ = {isa = PBXBuildFile; productRef = 1161D31829957CA000A8DAB7 /* CantinaAssets */; };
 		1161D31C29957D5B00A8DAB7 /* CantinaClient in Frameworks */ = {isa = PBXBuildFile; productRef = 1161D31B29957D5B00A8DAB7 /* CantinaClient */; };
 		11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ABF37329912E89000C8168 /* CantinaAppApp.swift */; };
 		11ABF37C29912E8A000C8168 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */; };
+		11BF3A262997D7010017BE45 /* AppEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A252997D7010017BE45 /* AppEnterView.swift */; };
+		11BF3A282997D74A0017BE45 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A272997D74A0017BE45 /* CatalogView.swift */; };
+		11BF3A2A2997D7700017BE45 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A292997D7700017BE45 /* ContactsView.swift */; };
+		11BF3A2C2997D7890017BE45 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A2B2997D7890017BE45 /* HomeView.swift */; };
+		11BF3A2E2997E0140017BE45 /* AppEnterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A2D2997E0140017BE45 /* AppEnterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +28,6 @@
 		112A8F60299571E900B15BB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		112A8F61299571E900B15BB5 /* Injector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		112A8F63299571E900B15BB5 /* ModuleDependencyImpl.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleDependencyImpl.generated.swift; sourceTree = "<group>"; };
-		112A8F68299571E900B15BB5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		112A8F732995721600B15BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1161D31729957C7400A8DAB7 /* Cantina-ios-assets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-assets"; path = "Packages/Cantina-ios-assets"; sourceTree = "<group>"; };
 		1161D31A29957D3700A8DAB7 /* Cantina-ios-client */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-client"; path = "Packages/Cantina-ios-client"; sourceTree = "<group>"; };
@@ -33,6 +36,11 @@
 		11ABF37329912E89000C8168 /* CantinaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantinaAppApp.swift; sourceTree = "<group>"; };
 		11ABF37929912E8A000C8168 /* CantinaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CantinaApp.entitlements; sourceTree = "<group>"; };
 		11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11BF3A252997D7010017BE45 /* AppEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnterView.swift; sourceTree = "<group>"; };
+		11BF3A272997D74A0017BE45 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		11BF3A292997D7700017BE45 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		11BF3A2B2997D7890017BE45 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		11BF3A2D2997E0140017BE45 /* AppEnterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +77,10 @@
 		112A8F67299571E900B15BB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				112A8F68299571E900B15BB5 /* ContentView.swift */,
+				11BF3A252997D7010017BE45 /* AppEnterView.swift */,
+				11BF3A272997D74A0017BE45 /* CatalogView.swift */,
+				11BF3A292997D7700017BE45 /* ContactsView.swift */,
+				11BF3A2B2997D7890017BE45 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 		11ABF37229912E89000C8168 /* CantinaApp */ = {
 			isa = PBXGroup;
 			children = (
+				11BF3A242997D6E20017BE45 /* Models */,
 				112A8F722995721600B15BB5 /* Resources */,
 				112A8F5D299571E900B15BB5 /* Assembly */,
 				112A8F62299571E900B15BB5 /* Generated */,
@@ -137,6 +149,14 @@
 				1161D31A29957D3700A8DAB7 /* Cantina-ios-client */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		11BF3A242997D6E20017BE45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11BF3A2D2997E0140017BE45 /* AppEnterViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,12 +255,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BF3A2C2997D7890017BE45 /* HomeView.swift in Sources */,
 				112A8F6C299571E900B15BB5 /* Injector.swift in Sources */,
+				11BF3A282997D74A0017BE45 /* CatalogView.swift in Sources */,
 				11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */,
+				11BF3A262997D7010017BE45 /* AppEnterView.swift in Sources */,
 				112A8F6D299571E900B15BB5 /* ModuleDependencyImpl.generated.swift in Sources */,
+				11BF3A2E2997E0140017BE45 /* AppEnterViewModel.swift in Sources */,
 				112A8F6B299571E900B15BB5 /* Settings.swift in Sources */,
-				112A8F71299571E900B15BB5 /* ContentView.swift in Sources */,
 				112A8F69299571E900B15BB5 /* Logger.swift in Sources */,
+				11BF3A2A2997D7700017BE45 /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,2 +1,4 @@
-// MARK: - Placeholders
-"test" = "test";
+// MARK: - tabs
+"tab.home"      = "Home";
+"tab.catalog"   = "Catalog";
+"tab.contacts"  = "Contacts";
