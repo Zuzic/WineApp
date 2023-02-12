@@ -3,14 +3,26 @@ import SwiftUI
 
 struct AppEnterView: View {
     @ObservedObject private var viewModel: AppEnterViewModel
+    @State private var isNavigationVisible: Bool = false
     
     var body: some View {
-        TabView {
-            home
-            catalog
-            contacts
+        NavigationStack {
+            TabView(selection: $viewModel.activeTab) {
+                ForEach(viewModel.tabs) { item in
+                    switch item {
+                    case .home: home
+                    case .catalog: catalog
+                    case .contact: contacts
+                    }
+                }
+               
+            }
+            .accentColor(Asset.Colors.accents.swiftUIColor)
         }
-        .accentColor(Asset.Colors.accents.swiftUIColor)
+        .environment(\.isNavigationVisible, isNavigationVisible)
+        .onChange(of: viewModel.activeTab) { activeTab in
+            isNavigationVisible = activeTab == .catalog
+        }
     }
     
     init(viewModel: AppEnterViewModel) {
@@ -20,13 +32,16 @@ struct AppEnterView: View {
 
 private extension AppEnterView {
     var catalog: some View {
-        CatalogView()
+        CatalogView(viewModel: viewModel.catalogViewModel)
             .tabItem {
                 VStack {
                     AppTabs.catalog.title
                     AppTabs.catalog.icon
                 }
             }
+            .tag(AppTabs.catalog)
+            .applyTabbarStyle()
+            .adoptNavigationBar()
     }
     
     var home: some View {
@@ -37,7 +52,9 @@ private extension AppEnterView {
                     AppTabs.home.icon
                 }
             }
-            .ignoresSafeArea()
+            .tag(AppTabs.home)
+            .applyTabbarStyle()
+            .adoptNavigationBar()
     }
     
     var contacts: some View {
@@ -48,11 +65,22 @@ private extension AppEnterView {
                     AppTabs.contact.icon
                 }
             }
+            .tag(AppTabs.contact)
+            .applyTabbarStyle()
+            .adoptNavigationBar()
     }
 }
 
 // MARK: -
-private extension AppTabs {
+extension AppTabs: Identifiable {
+    var id: Int {
+        switch self {
+        case .home: return 101
+        case .catalog: return 102
+        case .contact: return 103
+        }
+    }
+    
     var title: some View {
         switch self {
         case .home: return Text(L10n.Tab.home)

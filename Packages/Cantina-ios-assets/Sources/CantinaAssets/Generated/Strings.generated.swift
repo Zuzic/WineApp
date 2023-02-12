@@ -10,6 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum L10n {
+  public enum Catalog {
+    public enum Item {
+      /// Status: %@
+      public static func status(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "catalog.item.status", String(describing: p1), fallback: "Status: %@")
+      }
+    }
+  }
   public enum Contacts {
     /// Follow us
     public static let followUs = L10n.tr("Localizable", "contacts.follow_us", fallback: "Follow us")

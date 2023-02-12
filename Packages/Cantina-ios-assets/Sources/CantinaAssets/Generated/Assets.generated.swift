@@ -37,6 +37,7 @@ public enum Asset {
   public enum Icons {
     public static let logo = ImageAsset(name: "Logo")
     public enum Tmp {
+      public static let bottleWineTMP = ImageAsset(name: "TMP/bottleWineTMP")
       public static let contactsTMP = ImageAsset(name: "TMP/contactsTMP")
       public static let homeTMP = ImageAsset(name: "TMP/homeTMP")
     }

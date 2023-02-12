@@ -10,6 +10,7 @@ public struct WineOutputModel: Codable {
     public let region: String
     public let grape: String
     public let image: URL?
+    public let status: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -21,6 +22,7 @@ public struct WineOutputModel: Codable {
         case region
         case grape
         case image
+        case status
     }
 
     public init(from decoder: Decoder) throws {
@@ -34,5 +36,6 @@ public struct WineOutputModel: Codable {
         self.region = try values.decode(String.self, forKey: .region)
         self.grape = try values.decode(String.self, forKey: .grape)
         self.image = URL(string: try values.decode(String.self, forKey: .image))
+        self.status = try values.decode(String.self, forKey: .status)
     }
 }

@@ -20,6 +20,7 @@ protocol AppEnterViewModelInjection {
 
 final class AppEnterViewModel: ObservableObject {
     @Published var activeTab: AppTabs = .home
+    var tabs: [AppTabs] = [.home, .catalog, .contact]
     
     private let injection: AppEnterViewModelInjection
     let homeViewModel: HomeViewModel

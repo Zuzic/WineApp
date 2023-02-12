@@ -28,10 +28,10 @@ struct HomeView: View {
                     .padding(.horizontal, 32)
                     .multilineTextAlignment(.leading)
             }
-            .ignoresSafeArea()
-            
         }
         .frame(maxHeight: .infinity, alignment: .top)
+        .background(Asset.Colors.surface.swiftUIColor)
+        .edgesIgnoringSafeArea(.top)
         .onAppear {
             viewModel.onAppear()
         }

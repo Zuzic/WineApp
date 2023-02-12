@@ -76,10 +76,10 @@ struct ContactsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 32)
             }
-            .ignoresSafeArea()
-            
         }
         .frame(maxHeight: .infinity, alignment: .top)
+        .background(Asset.Colors.surface.swiftUIColor)
+        .edgesIgnoringSafeArea(.top)
         .onAppear {
             viewModel.onAppear()
         }
