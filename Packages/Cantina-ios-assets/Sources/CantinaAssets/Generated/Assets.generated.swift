@@ -36,7 +36,18 @@ public enum Asset {
   }
   public enum Icons {
     public static let logo = ImageAsset(name: "Logo")
+    public enum Tmp {
+      public static let contactsTMP = ImageAsset(name: "TMP/contactsTMP")
+      public static let homeTMP = ImageAsset(name: "TMP/homeTMP")
+    }
     public static let back = ImageAsset(name: "back")
+    public enum Contacts {
+      public static let email = ImageAsset(name: "contacts/email")
+      public static let facebook = ImageAsset(name: "contacts/facebook")
+      public static let fax = ImageAsset(name: "contacts/fax")
+      public static let instagram = ImageAsset(name: "contacts/instagram")
+      public static let phone = ImageAsset(name: "contacts/phone")
+    }
     public static let filter = ImageAsset(name: "filter")
     public static let glassWine = ImageAsset(name: "glass.wine")
     public static let grape = ImageAsset(name: "grape")

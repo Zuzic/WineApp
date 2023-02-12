@@ -30,17 +30,18 @@ private extension AppEnterView {
     }
     
     var home: some View {
-        HomeView()
+        HomeView(viewModel: viewModel.homeViewModel)
             .tabItem {
                 VStack {
                     AppTabs.home.title
                     AppTabs.home.icon
                 }
             }
+            .ignoresSafeArea()
     }
     
     var contacts: some View {
-        ContactsView()
+        ContactsView(viewModel: viewModel.contactsViewModel)
             .tabItem {
                 VStack {
                     AppTabs.contact.title

@@ -22,3 +22,14 @@ final class Injector {
         // sourcery:end
     }
 }
+
+// sourcery:inline:Injector.UnwrapModuleOutputs
+// swiftlint: disable: identifier_name
+extension Injector {
+    // MARK: - ClientModuleOutput
+    var clientModuleOutputCatalogRepository: CantinaClient.CatalogRepository { clientModuleOutput.catalogRepository }
+    var clientModuleOutputHomeRepository: CantinaClient.HomeRepository { clientModuleOutput.homeRepository }
+    var clientModuleOutputContactRepository: CantinaClient.ContactRepository { clientModuleOutput.contactRepository }
+
+}
+// sourcery:end

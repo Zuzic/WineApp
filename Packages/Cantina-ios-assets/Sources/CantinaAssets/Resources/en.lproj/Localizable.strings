@@ -2,3 +2,6 @@
 "tab.home"      = "Home";
 "tab.catalog"   = "Catalog";
 "tab.contacts"  = "Contacts";
+
+// MARK: - contacts
+"contacts.follow_us" = "Follow us";

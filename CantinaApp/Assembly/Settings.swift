@@ -13,7 +13,7 @@ final class Settings {
     @UserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
     
-    @BundleInfo(key: "REST_URL", defaultValue: { "https://zuzic.github.io/CantinaMock" }())
+    @BundleInfo(key: "REST_URL", defaultValue: { "zuzic.github.io/CantinaMock" }())
     var restEndpoint: String
 }
 

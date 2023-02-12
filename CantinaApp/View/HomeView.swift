@@ -1,13 +1,43 @@
+import CantinaAssets
 import SwiftUI
 
+private struct Constants {
+    static let aspectRation: CGSize = .init(width: 390, height: 264)
+}
+
 struct HomeView: View {
+    @ObservedObject private var viewModel: HomeViewModel
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("HomeView")
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 0) {
+                Asset.Icons.Tmp.homeTMP.swiftUIImage
+                    .aspectRatio(Constants.aspectRation, contentMode: .fit)
+                
+                Text(viewModel.homeInfo?.title ?? "")
+                    .font(Fonts.header3)
+                    .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 32)
+                    .padding(.vertical)
+                
+                Text(viewModel.homeInfo?.desc ?? "")
+                    .font(Fonts.body1)
+                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 32)
+                    .multilineTextAlignment(.leading)
+            }
+            .ignoresSafeArea()
+            
         }
-        .padding()
+        .frame(maxHeight: .infinity, alignment: .top)
+        .onAppear {
+            viewModel.onAppear()
+        }
+    }
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
     }
 }

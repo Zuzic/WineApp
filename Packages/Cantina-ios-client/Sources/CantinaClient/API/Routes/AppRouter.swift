@@ -2,7 +2,7 @@ import Foundation
 import Moya
 
 enum AppRouter {
-    case data(LoginRequestModel)
+    case catalog
 }
 
 extension AppRouter: TargetType {
@@ -12,8 +12,8 @@ extension AppRouter: TargetType {
 
     var task: Task {
         switch self {
-        case .data(let loginModel):
-            return .requestParameters(parameters: loginModel.dict, encoding: URLEncoding.httpBody)
+        case .catalog:
+            return .requestPlain
         }
     }
 
@@ -27,7 +27,7 @@ extension AppRouter: TargetType {
 
     var path: String {
         switch self {
-        case .data: return "/data.json"
+        case .catalog: return "/data.json"
         }
     }
 }
