@@ -22,6 +22,16 @@ public enum L10n {
     /// Follow us
     public static let followUs = L10n.tr("Localizable", "contacts.follow_us", fallback: "Follow us")
   }
+  public enum Docg {
+    /// Our wines have the highest quality status as per the Italian classification of the origins: DOCG  (Denominazione di Origine Controllata e Garantita) and DOC (Denominazione di Origine Controllata). 
+    /// 
+    /// We produce white wine from the ancient Greco and Fiano grape varieties. Both gained status DOCG. 
+    /// 
+    /// The red wine — is from the grape variety Aglianico natural pearl of Campania’s wine. It’s an ancient wine varietal that gave birth to excellent quality wines, as in the case of wine Taurasi, which have status DOCG. Shows musky berry flavors with firm tannins and good aging potential.
+    public static let desc = L10n.tr("Localizable", "docg.desc", fallback: "Our wines have the highest quality status as per the Italian classification of the origins: DOCG  (Denominazione di Origine Controllata e Garantita) and DOC (Denominazione di Origine Controllata). \n\nWe produce white wine from the ancient Greco and Fiano grape varieties. Both gained status DOCG. \n\nThe red wine — is from the grape variety Aglianico natural pearl of Campania’s wine. It’s an ancient wine varietal that gave birth to excellent quality wines, as in the case of wine Taurasi, which have status DOCG. Shows musky berry flavors with firm tannins and good aging potential.")
+    /// Status of quality
+    public static let title = L10n.tr("Localizable", "docg.title", fallback: "Status of quality")
+  }
   public enum Tab {
     /// Catalog
     public static let catalog = L10n.tr("Localizable", "tab.catalog", fallback: "Catalog")

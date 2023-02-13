@@ -40,6 +40,7 @@ public enum Asset {
       public static let bottleWineTMP = ImageAsset(name: "TMP/bottleWineTMP")
       public static let contactsTMP = ImageAsset(name: "TMP/contactsTMP")
       public static let homeTMP = ImageAsset(name: "TMP/homeTMP")
+      public static let wineDetailsTMP = ImageAsset(name: "TMP/wineDetailsTMP")
     }
     public static let back = ImageAsset(name: "back")
     public enum Contacts {

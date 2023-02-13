@@ -46,7 +46,7 @@ private extension CatalogViewModel {
             .map {[weak self] value in
                 guard let self else { return [] }
                 guard !value.isEmpty else { return self.rootCatalog } 
-                return self.rootCatalog.filter { $0.name.contains(value) }
+                return self.rootCatalog.filter { $0.name.lowercased().contains(value.lowercased()) }
             }.assign(to: &$catalog)
     }
 }

@@ -23,7 +23,7 @@ struct CatalogCell: View {
                     .frame(maxWidth: Constants.aspectRation.width, alignment: .top)
             }
             
-            VStack(spacing: 4) {
+            VStack(spacing: 8) {
                 Text(wine.name)
                     .font(Fonts.header3)
                     .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
@@ -34,7 +34,7 @@ struct CatalogCell: View {
                     .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(L10n.Catalog.Item.status(wine.status.capitalized))
+                Text(L10n.Catalog.Item.status(wine.status.uppercased()))
                     .font(Fonts.body1)
                     .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)

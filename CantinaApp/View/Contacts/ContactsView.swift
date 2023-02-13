@@ -97,7 +97,7 @@ private extension ContactsView {
             
             Text(text ?? "")
                 .font(Fonts.body1)
-                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                .foregroundColor(Asset.Colors.accents.swiftUIColor)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

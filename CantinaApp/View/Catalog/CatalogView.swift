@@ -11,25 +11,28 @@ struct CatalogView: View {
     @Environment(\.isNavigationVisible) var isNavigationVisible
     
     var body: some View {
-        List {
-            ForEach(viewModel.catalog, id: \.id) { item in
-                VStack {
-                    CatalogCell(wine: item)
-                        .padding(.horizontal)
-                    
-                    Divider()
+        NavigationStack {
+            List {
+                ForEach(viewModel.catalog, id: \.id) { item in
+                    VStack {
+                        CatalogCell(wine: item)
+                            .padding(.horizontal)
+                        
+                        Divider()
+                    }
+                    .background(NavigationLink("", destination: WineDetailsView(wine: item)).opacity(0) )
+                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Asset.Colors.surface.swiftUIColor)
                 }
-                .background(NavigationLink("", destination: Text("")).opacity(0) )
-                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .listRowSeparator(.hidden)
-                .listRowBackground(Asset.Colors.surface.swiftUIColor)
             }
+            .padding(.top, 0)
+            .listStyle(.plain)
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $viewModel.queryString, placement: .navigationBarDrawer(displayMode: .always))
         }
-
-        .listStyle(.plain)
-        .navigationDestination(for: WineOutputModel.self) { _ in
-            WineDetailsView()
-        }
+        .background(Asset.Colors.surface.swiftUIColor)
+        .adoptNavigationBar()
         .onAppear {
             viewModel.onAppear()
         }
@@ -50,8 +53,6 @@ struct CatalogView: View {
                 
             }
         }
-        .background(Asset.Colors.surface.swiftUIColor)
-        .searchable(text: $viewModel.queryString, placement: .navigationBarDrawer(displayMode: .always))
     }
     
     init(viewModel: CatalogViewModel) {
