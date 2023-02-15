@@ -5,10 +5,12 @@
 import Foundation
 import Foundation
 import Foundation
+import Foundation
 import Combine
 import CombineMoya
 import Foundation
 import Moya
+import Foundation
 
 
 // MARK: - CatalogRepositoryInjection
@@ -21,6 +23,14 @@ final class CatalogRepositoryInjectionImpl: CatalogRepositoryInjection {
 
     var restClient: RestApiClient {
         injector.restClient
+    }
+
+    var storage: Storage {
+        injector.storage
+    }
+
+    var initialRepository: InitialRepository {
+        injector.initialRepository
     }
 }
 
@@ -40,6 +50,14 @@ final class ContactRepositoryInjectionImpl: ContactRepositoryInjection {
     var restClient: RestApiClient {
         injector.restClient
     }
+
+    var storage: Storage {
+        injector.storage
+    }
+
+    var initialRepository: InitialRepository {
+        injector.initialRepository
+    }
 }
 
 extension ClientModule {
@@ -58,11 +76,41 @@ final class HomeRepositoryInjectionImpl: HomeRepositoryInjection {
     var restClient: RestApiClient {
         injector.restClient
     }
+
+    var storage: Storage {
+        injector.storage
+    }
+
+    var initialRepository: InitialRepository {
+        injector.initialRepository
+    }
 }
 
 extension ClientModule {
     func build() -> HomeRepositoryInjection {
         HomeRepositoryInjectionImpl(injector: self)
+    }
+}
+// MARK: - InitialRepositoryInjection
+
+final class InitialRepositoryInjectionImpl: InitialRepositoryInjection {
+    private let injector: ClientModule
+    fileprivate init(injector: ClientModule) {
+        self.injector = injector
+    }
+
+    var restClient: RestApiClient {
+        injector.restClient
+    }
+
+    var storage: Storage {
+        injector.storage
+    }
+}
+
+extension ClientModule {
+    func build() -> InitialRepositoryInjection {
+        InitialRepositoryInjectionImpl(injector: self)
     }
 }
 // MARK: - RestApiClientInjection
@@ -81,5 +129,19 @@ final class RestApiClientInjectionImpl: RestApiClientInjection {
 extension ClientModule {
     func build() -> RestApiClientInjection {
         RestApiClientInjectionImpl(injector: self)
+    }
+}
+// MARK: - StorageInjection
+
+final class StorageInjectionImpl: StorageInjection {
+    private let injector: ClientModule
+    fileprivate init(injector: ClientModule) {
+        self.injector = injector
+    }
+}
+
+extension ClientModule {
+    func build() -> StorageInjection {
+        StorageInjectionImpl(injector: self)
     }
 }

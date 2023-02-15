@@ -8,10 +8,14 @@ enum AppTabs {
     case contact
 }
 
+enum AppMode {
+    case initalMode
+    case appMode
+}
+
 // sourcery: builder
 protocol AppEnterViewModelInjection {
-    // sourcery: module = client
-    var catalogRepository: CatalogRepository { get }
+    var initialRepository: InitialRepository { get }
     
     var homeViewModelInjection: HomeViewModelInjection { get }
     var catalogViewModelInjection: CatalogViewModelInjection { get }
@@ -20,6 +24,7 @@ protocol AppEnterViewModelInjection {
 
 final class AppEnterViewModel: ObservableObject {
     @Published var activeTab: AppTabs = .home
+    @Published var appMode: AppMode = .initalMode
     var tabs: [AppTabs] = [.home, .catalog, .contact]
     
     private let injection: AppEnterViewModelInjection
@@ -33,5 +38,21 @@ final class AppEnterViewModel: ObservableObject {
         self.catalogViewModel = .init(injection: injection.catalogViewModelInjection)
         self.contactsViewModel = .init(injection: injection.contactsViewModelInjection)
         
+    }
+    
+    func onAppear() {
+        Task {
+            do {
+                try await injection.initialRepository.loadInitialData()
+                
+                try await Task.sleep(for: .seconds(1))
+                
+               await MainActor.run {
+                   appMode = .appMode
+                }
+            } catch {
+                debugPrint("Error \(error)")
+            }
+        }
     }
 }

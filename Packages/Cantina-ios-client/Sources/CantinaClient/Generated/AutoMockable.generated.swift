@@ -42,23 +42,41 @@ public class CatalogRepositoryMock: CatalogRepository {
 
     //MARK: - wines
 
-    public var winesThrowableError: Error?
     public var winesCallsCount = 0
     public var winesCalled: Bool {
         return winesCallsCount > 0
     }
     public var winesReturnValue: [WineOutputModel]!
-    public var winesClosure: (() async throws -> [WineOutputModel])?
+    public var winesClosure: (() async -> [WineOutputModel])?
 
-    public func wines() async throws -> [WineOutputModel] {
-        if let error = winesThrowableError {
-            throw error
-        }
+    public func wines() async -> [WineOutputModel] {
         winesCallsCount += 1
         if let winesClosure = winesClosure {
-            return try await winesClosure()
+            return await winesClosure()
         } else {
             return winesReturnValue
+        }
+    }
+
+    //MARK: - updateWines
+
+    public var updateWinesThrowableError: Error?
+    public var updateWinesCallsCount = 0
+    public var updateWinesCalled: Bool {
+        return updateWinesCallsCount > 0
+    }
+    public var updateWinesReturnValue: [WineOutputModel]!
+    public var updateWinesClosure: (() async throws -> [WineOutputModel])?
+
+    public func updateWines() async throws -> [WineOutputModel] {
+        if let error = updateWinesThrowableError {
+            throw error
+        }
+        updateWinesCallsCount += 1
+        if let updateWinesClosure = updateWinesClosure {
+            return try await updateWinesClosure()
+        } else {
+            return updateWinesReturnValue
         }
     }
 
@@ -90,6 +108,28 @@ public class ContactRepositoryMock: ContactRepository {
         }
     }
 
+    //MARK: - refreshContactInfo
+
+    public var refreshContactInfoThrowableError: Error?
+    public var refreshContactInfoCallsCount = 0
+    public var refreshContactInfoCalled: Bool {
+        return refreshContactInfoCallsCount > 0
+    }
+    public var refreshContactInfoReturnValue: ContactOutputModel!
+    public var refreshContactInfoClosure: (() async throws -> ContactOutputModel)?
+
+    public func refreshContactInfo() async throws -> ContactOutputModel {
+        if let error = refreshContactInfoThrowableError {
+            throw error
+        }
+        refreshContactInfoCallsCount += 1
+        if let refreshContactInfoClosure = refreshContactInfoClosure {
+            return try await refreshContactInfoClosure()
+        } else {
+            return refreshContactInfoReturnValue
+        }
+    }
+
 }
 public class HomeRepositoryMock: HomeRepository {
 
@@ -116,6 +156,51 @@ public class HomeRepositoryMock: HomeRepository {
         } else {
             return homeInfoReturnValue
         }
+    }
+
+    //MARK: - refreshHomeInfo
+
+    public var refreshHomeInfoThrowableError: Error?
+    public var refreshHomeInfoCallsCount = 0
+    public var refreshHomeInfoCalled: Bool {
+        return refreshHomeInfoCallsCount > 0
+    }
+    public var refreshHomeInfoReturnValue: HomeOutputModel!
+    public var refreshHomeInfoClosure: (() async throws -> HomeOutputModel)?
+
+    public func refreshHomeInfo() async throws -> HomeOutputModel {
+        if let error = refreshHomeInfoThrowableError {
+            throw error
+        }
+        refreshHomeInfoCallsCount += 1
+        if let refreshHomeInfoClosure = refreshHomeInfoClosure {
+            return try await refreshHomeInfoClosure()
+        } else {
+            return refreshHomeInfoReturnValue
+        }
+    }
+
+}
+public class InitialRepositoryMock: InitialRepository {
+
+    public init() {}
+
+
+    //MARK: - loadInitialData
+
+    public var loadInitialDataThrowableError: Error?
+    public var loadInitialDataCallsCount = 0
+    public var loadInitialDataCalled: Bool {
+        return loadInitialDataCallsCount > 0
+    }
+    public var loadInitialDataClosure: (() async throws -> Void)?
+
+    public func loadInitialData() async throws {
+        if let error = loadInitialDataThrowableError {
+            throw error
+        }
+        loadInitialDataCallsCount += 1
+        try await loadInitialDataClosure?()
     }
 
 }

@@ -21,8 +21,8 @@ final class AppEnterViewModelInjectionImpl: AppEnterViewModelInjection {
         self.injector = injector
     }
 
-    var catalogRepository: CatalogRepository {
-        injector.clientModuleOutput.catalogRepository
+    var initialRepository: InitialRepository {
+        injector.clientModuleOutputInitialRepository
     }
 
     var homeViewModelInjection: HomeViewModelInjection {
@@ -52,7 +52,7 @@ final class CatalogViewModelInjectionImpl: CatalogViewModelInjection {
     }
 
     var catalogRepository: CatalogRepository {
-        injector.clientModuleOutput.catalogRepository
+        injector.clientModuleOutputCatalogRepository
     }
 }
 
@@ -70,7 +70,7 @@ final class ContactsViewModelInjectionImpl: ContactsViewModelInjection {
     }
 
     var contactRepository: ContactRepository {
-        injector.clientModuleOutput.contactRepository
+        injector.clientModuleOutputContactRepository
     }
 }
 
@@ -88,7 +88,7 @@ final class HomeViewModelInjectionImpl: HomeViewModelInjection {
     }
 
     var homeRepository: HomeRepository {
-        injector.clientModuleOutput.homeRepository
+        injector.clientModuleOutputHomeRepository
     }
 }
 

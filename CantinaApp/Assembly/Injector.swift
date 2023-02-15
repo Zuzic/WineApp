@@ -30,6 +30,7 @@ extension Injector {
     var clientModuleOutputCatalogRepository: CantinaClient.CatalogRepository { clientModuleOutput.catalogRepository }
     var clientModuleOutputHomeRepository: CantinaClient.HomeRepository { clientModuleOutput.homeRepository }
     var clientModuleOutputContactRepository: CantinaClient.ContactRepository { clientModuleOutput.contactRepository }
+    var clientModuleOutputInitialRepository: CantinaClient.InitialRepository { clientModuleOutput.initialRepository }
 
 }
 // sourcery:end

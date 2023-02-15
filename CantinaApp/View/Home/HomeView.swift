@@ -12,6 +12,7 @@ struct HomeView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
                 Asset.Icons.Tmp.homeTMP.swiftUIImage
+                    .resizable()
                     .aspectRatio(Constants.aspectRation, contentMode: .fit)
                 
                 Text(viewModel.homeInfo?.title ?? "")
@@ -31,7 +32,10 @@ struct HomeView: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .background(Asset.Colors.surface.swiftUIColor)
-        .edgesIgnoringSafeArea(.top)
+        .refreshable {
+            viewModel.onRefresh()
+        }
+//        .edgesIgnoringSafeArea(.top)
         .onAppear {
             viewModel.onAppear()
         }

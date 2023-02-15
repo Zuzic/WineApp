@@ -3,7 +3,6 @@ import Foundation
 
 // sourcery: builder
 protocol CatalogViewModelInjection {
-    // sourcery: module = client
     var catalogRepository: CatalogRepository { get }
 }
 
@@ -11,9 +10,18 @@ final class CatalogViewModel: ObservableObject {
     @Published var catalog: [WineOutputModel] = []
     @Published var queryString: String = ""
     
+    var brands: [String] = []
+    
     private var rootCatalog: [WineOutputModel] = [] {
         didSet {
             catalog = rootCatalog
+            
+            brands = rootCatalog.reduce([], { partialResult, wine in
+                guard !partialResult.contains(where: { $0 == wine.brand }) else { return partialResult }
+                var items = partialResult
+                items.append(wine.brand)
+                return items
+            })
         }
     }
     
@@ -27,13 +35,23 @@ final class CatalogViewModel: ObservableObject {
     func onAppear() {
         Task {
             do {
-                let result = try await injection.catalogRepository.wines()
+                let result = await injection.catalogRepository.wines()
                 
                 await MainActor.run {
                     self.rootCatalog = result
                 }
-            } catch {
-                debugPrint("Error \(error)")
+            }
+        }
+    }
+    
+    func onRefresh() {
+        Task {
+            do {
+                let result = try await injection.catalogRepository.updateWines()
+                
+                await MainActor.run {
+                    self.rootCatalog = result
+                }
             }
         }
     }

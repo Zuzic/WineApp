@@ -16,6 +16,7 @@ struct WineDetailsView: View {
     var body: some View {
         ScrollView {
             Asset.Icons.Tmp.wineDetailsTMP.swiftUIImage
+                .resizable()
                 .aspectRatio(Constants.aspectRation, contentMode: .fit)
             
             HStack(spacing: 16) {

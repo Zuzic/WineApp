@@ -3,7 +3,6 @@ import Foundation
 
 // sourcery: builder
 protocol ContactsViewModelInjection {
-    // sourcery: module = client
     var contactRepository: ContactRepository { get }
 }
 
@@ -30,6 +29,20 @@ final class ContactsViewModel: ObservableObject {
         Task {
             do {
                 let result = try await injection.contactRepository.contactInfo()
+                
+                await MainActor.run {
+                    self.contactsInfo = result
+                }
+            } catch {
+                debugPrint("Error \(error)")
+            }
+        }
+    }
+    
+    func onRefresh() {
+        Task {
+            do {
+                let result = try await injection.contactRepository.refreshContactInfo()
                 
                 await MainActor.run {
                     self.contactsInfo = result

@@ -6,22 +6,15 @@ struct AppEnterView: View {
     @State private var isNavigationVisible: Bool = false
     
     var body: some View {
-        NavigationStack {
-            TabView(selection: $viewModel.activeTab) {
-                ForEach(viewModel.tabs) { item in
-                    switch item {
-                    case .home: home
-                    case .catalog: catalog
-                    case .contact: contacts
-                    }
-                }
-               
+        VStack {
+            switch viewModel.appMode {
+            case .appMode: appRootView
+            case .initalMode: SplashView()
             }
-            .accentColor(Asset.Colors.accents.swiftUIColor)
         }
-        .environment(\.isNavigationVisible, isNavigationVisible)
-        .onChange(of: viewModel.activeTab) { activeTab in
-            isNavigationVisible = activeTab == .catalog
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            viewModel.onAppear()
         }
     }
     
@@ -31,6 +24,26 @@ struct AppEnterView: View {
 }
 
 private extension AppEnterView {
+    var appRootView: some View {
+        NavigationStack {
+            TabView(selection: $viewModel.activeTab) {
+                ForEach(viewModel.tabs) { item in
+                    switch item {
+                    case .home: home
+                    case .catalog: catalog
+                    case .contact: contacts
+                    }
+                }
+                
+            }
+            .accentColor(Asset.Colors.accents.swiftUIColor)
+        }
+        .environment(\.isNavigationVisible, isNavigationVisible)
+        .onChange(of: viewModel.activeTab) { activeTab in
+            isNavigationVisible = activeTab == .catalog
+        }
+    }
+    
     var catalog: some View {
         CatalogView(viewModel: viewModel.catalogViewModel)
             .tabItem {

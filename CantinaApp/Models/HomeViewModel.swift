@@ -3,7 +3,6 @@ import Foundation
 
 // sourcery: builder
 protocol HomeViewModelInjection {
-    // sourcery: module = client
     var homeRepository: HomeRepository { get }
 }
 
@@ -17,6 +16,20 @@ final class HomeViewModel: ObservableObject {
     }
     
     func onAppear() {
+        Task {
+            do {
+                let result = try await injection.homeRepository.homeInfo()
+                
+                await MainActor.run {
+                    self.homeInfo = result
+                }
+            } catch {
+                debugPrint("Error \(error)")
+            }
+        }
+    }
+    
+    func onRefresh() {
         Task {
             do {
                 let result = try await injection.homeRepository.homeInfo()

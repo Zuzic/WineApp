@@ -3,11 +3,14 @@ import Foundation
 // sourcery: AutoMockable
 public protocol ContactRepository {
     func contactInfo() async throws -> ContactOutputModel
+    func refreshContactInfo() async throws -> ContactOutputModel
 }
 
 // sourcery: builder
 protocol ContactRepositoryInjection {
     var restClient: RestApiClient { get }
+    var storage: Storage { get }
+    var initialRepository: InitialRepository { get }
 }
 
 final class ContactRepositoryImpl: ContactRepository {
@@ -18,7 +21,12 @@ final class ContactRepositoryImpl: ContactRepository {
     }
     
     func contactInfo() async throws -> ContactOutputModel {
-        let result: DataResponse = try await injection.restClient.asyncPerform(route: .appRouter(.catalog))
-        return result.contact
+        guard let contact = injection.storage.data?.contact else { throw NetworkingError.missingData }
+        return contact
+    }
+    
+    func refreshContactInfo() async throws -> ContactOutputModel {
+        try await injection.initialRepository.loadInitialData()
+        return try await contactInfo()
     }
 }

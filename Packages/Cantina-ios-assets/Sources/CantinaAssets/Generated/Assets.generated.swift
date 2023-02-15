@@ -35,11 +35,11 @@ public enum Asset {
     public static let textSecondary = ColorAsset(name: "Text.Secondary")
   }
   public enum Icons {
-    public static let logo = ImageAsset(name: "Logo")
     public enum Tmp {
       public static let bottleWineTMP = ImageAsset(name: "TMP/bottleWineTMP")
       public static let contactsTMP = ImageAsset(name: "TMP/contactsTMP")
       public static let homeTMP = ImageAsset(name: "TMP/homeTMP")
+      public static let splashTMP = ImageAsset(name: "TMP/splashTMP")
       public static let wineDetailsTMP = ImageAsset(name: "TMP/wineDetailsTMP")
     }
     public static let back = ImageAsset(name: "back")
@@ -53,6 +53,8 @@ public enum Asset {
     public static let filter = ImageAsset(name: "filter")
     public static let glassWine = ImageAsset(name: "glass.wine")
     public static let grape = ImageAsset(name: "grape")
+    public static let logo = ImageAsset(name: "logo")
+    public static let logoSplash = ImageAsset(name: "logo.splash")
     public static let search = ImageAsset(name: "search")
     public enum Tabbar {
       public static let catalog = ImageAsset(name: "tabbar/catalog")

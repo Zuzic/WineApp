@@ -32,6 +32,14 @@ public enum L10n {
     /// Status of quality
     public static let title = L10n.tr("Localizable", "docg.title", fallback: "Status of quality")
   }
+  public enum Splash {
+    /// Lear more about our story full of passion for wine and for Italy land
+    public static let desc = L10n.tr("Localizable", "splash.desc", fallback: "Lear more about our story full of passion for wine and for Italy land")
+    /// Preparing...
+    public static let progress = L10n.tr("Localizable", "splash.progress", fallback: "Preparing...")
+    /// Welcome
+    public static let title = L10n.tr("Localizable", "splash.title", fallback: "Welcome")
+  }
   public enum Tab {
     /// Catalog
     public static let catalog = L10n.tr("Localizable", "tab.catalog", fallback: "Catalog")

@@ -9,6 +9,7 @@ private struct Constants {
 struct CatalogView: View {
     @ObservedObject private var viewModel: CatalogViewModel
     @Environment(\.isNavigationVisible) var isNavigationVisible
+    @State private var canShowFilter: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -50,8 +51,24 @@ struct CatalogView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Asset.Icons.filter.swiftUIImage
-                
+                    .onTapGesture {
+                        canShowFilter.toggle()
+                    }
             }
+        }
+        .refreshable {
+            viewModel.onRefresh()
+        }
+        .sheet(isPresented: $canShowFilter) {
+            VStack {
+//                ForEach(viewModel.brands) { item in
+//
+//                }
+                
+                Text("Test")
+            }
+            .presentationDetents([.height(450)])
+            .presentationDragIndicator(.visible)
         }
     }
     

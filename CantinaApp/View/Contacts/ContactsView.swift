@@ -13,6 +13,7 @@ struct ContactsView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
                 Asset.Icons.Tmp.contactsTMP.swiftUIImage
+                    .resizable()
                     .aspectRatio(Constants.aspectRation, contentMode: .fit)
                 
                 Text(viewModel.contactsInfo?.name ?? "")
@@ -79,9 +80,12 @@ struct ContactsView: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .background(Asset.Colors.surface.swiftUIColor)
-        .edgesIgnoringSafeArea(.top)
+//        .edgesIgnoringSafeArea(.top)
         .onAppear {
             viewModel.onAppear()
+        }
+        .refreshable {
+            viewModel.onRefresh()
         }
     }
     
