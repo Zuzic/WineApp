@@ -4,7 +4,7 @@ import SwiftUI
 
 private struct Constants {
     static let aspectRation: CGSize = .init(width: 360, height: 269)
-    static let bottleAspectRation: CGSize = .init(width: 81, height: 196)
+    static let bottleAspectRation: CGSize = .init(width: 106, height: 160)
 }
 
 struct WineDetailsView: View {
@@ -19,17 +19,20 @@ struct WineDetailsView: View {
                 .aspectRatio(Constants.aspectRation, contentMode: .fit)
             
             HStack(spacing: 16) {
-                AsyncImage(url: wine.image) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(Constants.bottleAspectRation, contentMode: .fit)
-                        .frame(maxWidth: Constants.bottleAspectRation.width, alignment: .top)
-                } placeholder: {
-                    Asset.Icons.Tmp.bottleWineTMP.swiftUIImage
-                        .resizable()
-                        .aspectRatio(Constants.bottleAspectRation, contentMode: .fit)
-                        .frame(maxWidth: Constants.bottleAspectRation.width, alignment: .top)
+                VStack {
+                    AsyncImage(url: wine.image) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                           
+                    } placeholder: {
+                        Asset.Icons.Tmp.bottleWineTMP.swiftUIImage
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
+                .aspectRatio(Constants.bottleAspectRation, contentMode: .fit)
+                .frame(maxWidth: Constants.bottleAspectRation.width, alignment: .top)
                 
                 VStack(spacing: 4) {
                     Text(wine.name)
@@ -98,6 +101,7 @@ struct WineDetailsView: View {
         .sheet(isPresented: $isPresentedDocg, content: DocgView.init)
         .transparentNavigationBar()
         .navigationBarBackButtonHidden()
+        .background(Asset.Colors.surface.swiftUIColor)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {

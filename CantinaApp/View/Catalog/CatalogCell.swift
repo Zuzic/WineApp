@@ -3,7 +3,7 @@ import CantinaClient
 import SwiftUI
 
 private struct Constants {
-    static let aspectRation: CGSize = .init(width: 81, height: 196)
+    static let aspectRatio: CGSize = .init(width: 106, height: 160)
 }
 
 struct CatalogCell: View {
@@ -11,17 +11,20 @@ struct CatalogCell: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            AsyncImage(url: wine.image) { image in
-                image
-                    .resizable()
-                    .aspectRatio(Constants.aspectRation, contentMode: .fit)
-                    .frame(maxWidth: Constants.aspectRation.width, alignment: .top)
-            } placeholder: {
-                Asset.Icons.Tmp.bottleWineTMP.swiftUIImage
-                    .resizable()
-                    .aspectRatio(Constants.aspectRation, contentMode: .fit)
-                    .frame(maxWidth: Constants.aspectRation.width, alignment: .top)
+            VStack {
+                AsyncImage(url: wine.image) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                       
+                } placeholder: {
+                    Asset.Icons.Tmp.bottleWineTMP.swiftUIImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
             }
+            .aspectRatio(Constants.aspectRatio, contentMode: .fit)
+            .frame(maxWidth: Constants.aspectRatio.width, alignment: .top)
             
             VStack(spacing: 8) {
                 Text(wine.name)
@@ -61,6 +64,7 @@ struct CatalogCell: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Asset.Colors.surface.swiftUIColor)
+        .padding(.top)
     }
     
     init(wine: WineOutputModel) {
