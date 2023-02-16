@@ -17,3 +17,8 @@
 "splash.desc"       = "Lear more about our story full of passion for wine and for Italy land";
 "splash.title"      =  "Welcome";
 "splash.progress"   = "Preparing...";
+
+// MARK: - filter
+"filter.section.grape"  = "Grape variety";
+"filter.section.brand"  = "Brand";
+"filter.section.type"   = "Type";

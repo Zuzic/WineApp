@@ -16,7 +16,7 @@ final class ContactsViewModel: ObservableObject {
     
     var callURL: URL? {
         guard let phone = contactsInfo?.phone else { return nil }
-        return URL(string: "tel:\(phone)")
+        return URL(string: "tel://\(phone.onlyDigits())")
     }
     
     private let injection: ContactsViewModelInjection
@@ -51,5 +51,13 @@ final class ContactsViewModel: ObservableObject {
                 debugPrint("Error \(error)")
             }
         }
+    }
+}
+
+// MARK: -
+private extension String {
+    func onlyDigits() -> String {
+        let filtredUnicodeScalars = unicodeScalars.filter { CharacterSet.decimalDigits.contains($0) }
+        return String(String.UnicodeScalarView(filtredUnicodeScalars))
     }
 }

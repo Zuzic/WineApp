@@ -43,6 +43,10 @@ public enum Asset {
       public static let wineDetailsTMP = ImageAsset(name: "TMP/wineDetailsTMP")
     }
     public static let back = ImageAsset(name: "back")
+    public enum Checkbox {
+      public static let checkboxOff = ImageAsset(name: "checkbox/checkbox.off")
+      public static let checkboxOn = ImageAsset(name: "checkbox/checkbox.on")
+    }
     public enum Contacts {
       public static let email = ImageAsset(name: "contacts/email")
       public static let facebook = ImageAsset(name: "contacts/facebook")
@@ -55,13 +59,11 @@ public enum Asset {
     public static let grape = ImageAsset(name: "grape")
     public static let logo = ImageAsset(name: "logo")
     public static let logoSplash = ImageAsset(name: "logo.splash")
-    public static let search = ImageAsset(name: "search")
     public enum Tabbar {
       public static let catalog = ImageAsset(name: "tabbar/catalog")
       public static let contatcs = ImageAsset(name: "tabbar/contatcs")
       public static let myWines = ImageAsset(name: "tabbar/my.wines")
     }
-    public static let windowClose = ImageAsset(name: "window.close")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

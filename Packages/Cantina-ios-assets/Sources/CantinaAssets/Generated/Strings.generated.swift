@@ -32,6 +32,16 @@ public enum L10n {
     /// Status of quality
     public static let title = L10n.tr("Localizable", "docg.title", fallback: "Status of quality")
   }
+  public enum Filter {
+    public enum Section {
+      /// Brand
+      public static let brand = L10n.tr("Localizable", "filter.section.brand", fallback: "Brand")
+      /// Grape variety
+      public static let grape = L10n.tr("Localizable", "filter.section.grape", fallback: "Grape variety")
+      /// Type
+      public static let type = L10n.tr("Localizable", "filter.section.type", fallback: "Type")
+    }
+  }
   public enum Splash {
     /// Lear more about our story full of passion for wine and for Italy land
     public static let desc = L10n.tr("Localizable", "splash.desc", fallback: "Lear more about our story full of passion for wine and for Italy land")

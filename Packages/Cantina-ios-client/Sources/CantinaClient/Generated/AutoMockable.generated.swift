@@ -80,6 +80,24 @@ public class CatalogRepositoryMock: CatalogRepository {
         }
     }
 
+    //MARK: - filter
+
+    public var filterCallsCount = 0
+    public var filterCalled: Bool {
+        return filterCallsCount > 0
+    }
+    public var filterReturnValue: WineFilterOutputModel!
+    public var filterClosure: (() async -> WineFilterOutputModel)?
+
+    public func filter() async -> WineFilterOutputModel {
+        filterCallsCount += 1
+        if let filterClosure = filterClosure {
+            return await filterClosure()
+        } else {
+            return filterReturnValue
+        }
+    }
+
 }
 public class ContactRepositoryMock: ContactRepository {
 
