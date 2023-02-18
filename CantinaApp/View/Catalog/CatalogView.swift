@@ -42,10 +42,8 @@ struct CatalogView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Asset.Icons.filter.swiftUIImage
-                        .onTapGesture {
-                            canShowFilter.toggle()
-                        }
+                    filterNavbarIcon
+                   
                 }
             }
             .adoptNavigationBar()
@@ -140,8 +138,26 @@ struct CatalogView: View {
     init(viewModel: CatalogViewModel) {
         self.viewModel = viewModel
     }
+    
+    private var filterNavbarIcon: some View {
+        HStack(spacing: 2) {
+            Asset.Icons.filter.swiftUIImage
+
+            if viewModel.allFilterItems.count > 0 {
+                Text("\(viewModel.allFilterItems.count)")
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(Asset.Colors.surface.swiftUIColor)
+                    .font(Fonts.body1)
+                    .background(Circle().fill(.black))
+            }
+        }
+        .onTapGesture {
+            canShowFilter.toggle()
+        }
+    }
 }
 
+// MARK: -
 extension WineOutputModel: Equatable, Hashable{
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
