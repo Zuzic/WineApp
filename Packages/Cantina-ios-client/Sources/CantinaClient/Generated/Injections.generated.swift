@@ -145,3 +145,21 @@ extension ClientModule {
         StorageInjectionImpl(injector: self)
     }
 }
+// MARK: - WineStatusRepositoryInjection
+
+final class WineStatusRepositoryInjectionImpl: WineStatusRepositoryInjection {
+    private let injector: ClientModule
+    fileprivate init(injector: ClientModule) {
+        self.injector = injector
+    }
+
+    var storage: Storage {
+        injector.storage
+    }
+}
+
+extension ClientModule {
+    func build() -> WineStatusRepositoryInjection {
+        WineStatusRepositoryInjectionImpl(injector: self)
+    }
+}

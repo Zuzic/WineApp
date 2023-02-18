@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */; };
 		112A8F69299571E900B15BB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F5E299571E900B15BB5 /* Logger.swift */; };
 		112A8F6B299571E900B15BB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F60299571E900B15BB5 /* Settings.swift */; };
 		112A8F6C299571E900B15BB5 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F61299571E900B15BB5 /* Injector.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetailsViewModel.swift; sourceTree = "<group>"; };
 		112A8F5E299571E900B15BB5 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		112A8F60299571E900B15BB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		112A8F61299571E900B15BB5 /* Injector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				116E44872999090100ACB318 /* CatalogViewModel.swift */,
 				116E44892999090D00ACB318 /* ContactsViewModel.swift */,
 				116E448B2999093B00ACB318 /* HomeViewModel.swift */,
+				111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				11BF3A282997D74A0017BE45 /* CatalogView.swift in Sources */,
 				116E449729995D2900ACB318 /* NavigationVisibilityKey.swift in Sources */,
 				11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */,
+				111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */,
 				116E44942999298D00ACB318 /* WineDetailsView.swift in Sources */,
 				11BF3A262997D7010017BE45 /* AppEnterView.swift in Sources */,
 				112A8F6D299571E900B15BB5 /* ModuleDependencyImpl.generated.swift in Sources */,
@@ -495,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = Z47YDNJ7J9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -538,7 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = Z47YDNJ7J9;
 				ENABLE_HARDENED_RUNTIME = YES;

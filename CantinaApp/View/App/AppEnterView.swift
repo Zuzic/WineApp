@@ -3,7 +3,7 @@ import SwiftUI
 
 struct AppEnterView: View {
     @ObservedObject private var viewModel: AppEnterViewModel
-    @State private var isNavigationVisible: Bool = false
+    @State private var safeAreaInsets: EdgeInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
     
     var body: some View {
         VStack {
@@ -16,6 +16,14 @@ struct AppEnterView: View {
         .onAppear {
             viewModel.onAppear()
         }
+        .background(
+            GeometryReader { proxy in
+                Color.clear.onAppear {
+                    self.safeAreaInsets = proxy.safeAreaInsets
+                }
+            }
+        )
+        .environment(\.safeAreaEdgeInsets, safeAreaInsets)
     }
     
     init(viewModel: AppEnterViewModel) {
@@ -25,23 +33,13 @@ struct AppEnterView: View {
 
 private extension AppEnterView {
     var appRootView: some View {
-        NavigationStack {
-            TabView(selection: $viewModel.activeTab) {
-                ForEach(viewModel.tabs) { item in
-                    switch item {
-                    case .home: home
-                    case .catalog: catalog
-                    case .contact: contacts
-                    }
-                }
-                
-            }
-            .accentColor(Asset.Colors.accents.swiftUIColor)
+        TabView {
+            home
+            catalog
+            contacts
         }
-        .environment(\.isNavigationVisible, isNavigationVisible)
-        .onChange(of: viewModel.activeTab) { activeTab in
-            isNavigationVisible = activeTab == .catalog
-        }
+        .accentColor(Asset.Colors.accents.swiftUIColor)
+        .applyTabbarStyle()
     }
     
     var catalog: some View {
@@ -52,9 +50,6 @@ private extension AppEnterView {
                     AppTabs.catalog.icon
                 }
             }
-            .tag(AppTabs.catalog)
-            .applyTabbarStyle()
-            .adoptNavigationBar()
     }
     
     var home: some View {
@@ -65,9 +60,6 @@ private extension AppEnterView {
                     AppTabs.home.icon
                 }
             }
-            .tag(AppTabs.home)
-            .applyTabbarStyle()
-            .adoptNavigationBar()
     }
     
     var contacts: some View {
@@ -78,22 +70,11 @@ private extension AppEnterView {
                     AppTabs.contact.icon
                 }
             }
-            .tag(AppTabs.contact)
-            .applyTabbarStyle()
-            .adoptNavigationBar()
     }
 }
 
 // MARK: -
-extension AppTabs: Identifiable {
-    var id: Int {
-        switch self {
-        case .home: return 101
-        case .catalog: return 102
-        case .contact: return 103
-        }
-    }
-    
+extension AppTabs {
     var title: some View {
         switch self {
         case .home: return Text(L10n.Tab.home)

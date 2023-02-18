@@ -33,6 +33,12 @@ public enum L10n {
     public static let title = L10n.tr("Localizable", "docg.title", fallback: "Status of quality")
   }
   public enum Filter {
+    public enum Header {
+      /// Clear
+      public static let clear = L10n.tr("Localizable", "filter.header.clear", fallback: "Clear")
+      /// Filter by:
+      public static let title = L10n.tr("Localizable", "filter.header.title", fallback: "Filter by:")
+    }
     public enum Section {
       /// Brand
       public static let brand = L10n.tr("Localizable", "filter.section.brand", fallback: "Brand")

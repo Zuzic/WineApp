@@ -11,6 +11,8 @@ import CantinaClient
 import Foundation
 import CantinaClient
 import Foundation
+import CantinaClient
+import Foundation
 
 
 // MARK: - AppEnterViewModelInjection
@@ -54,6 +56,10 @@ final class CatalogViewModelInjectionImpl: CatalogViewModelInjection {
     var catalogRepository: CatalogRepository {
         injector.clientModuleOutputCatalogRepository
     }
+
+    var wineDetailsViewModelInjection: WineDetailsViewModelInjection {
+        WineDetailsViewModelInjectionImpl(injector: injector)
+    }
 }
 
 extension Injector {
@@ -95,5 +101,23 @@ final class HomeViewModelInjectionImpl: HomeViewModelInjection {
 extension Injector {
     func build() -> HomeViewModelInjection {
         HomeViewModelInjectionImpl(injector: self)
+    }
+}
+// MARK: - WineDetailsViewModelInjection
+
+final class WineDetailsViewModelInjectionImpl: WineDetailsViewModelInjection {
+    private let injector: Injector
+    fileprivate init(injector: Injector) {
+        self.injector = injector
+    }
+
+    var wineStatusRepository: WineStatusRepository {
+        injector.clientModuleOutputWineStatusRepository
+    }
+}
+
+extension Injector {
+    func build() -> WineDetailsViewModelInjection {
+        WineDetailsViewModelInjectionImpl(injector: self)
     }
 }

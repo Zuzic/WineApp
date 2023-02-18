@@ -4,8 +4,6 @@ import SwiftUI
 private struct TabbarStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .toolbar(.visible, for: .tabBar)
-            .toolbarBackground(.visible, for: .tabBar)
             .toolbarBackground(Asset.Colors.surface.swiftUIColor, for: .tabBar)
     }
 }

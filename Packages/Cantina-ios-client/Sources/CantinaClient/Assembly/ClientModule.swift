@@ -12,6 +12,7 @@ final public class ClientModule: ClientModuleOutput {
     @LazyAtomic public private(set) var homeRepository: HomeRepository
     @LazyAtomic public private(set) var contactRepository: ContactRepository
     @LazyAtomic public private(set) var initialRepository: InitialRepository
+    @LazyAtomic public private(set) var wineStatusRepository: WineStatusRepository
     
     @LazyAtomic private(set) var restClient: RestApiClient
     @LazyAtomic private(set) var storage: Storage
@@ -24,6 +25,7 @@ final public class ClientModule: ClientModuleOutput {
         _homeRepository.initializer = { [unowned self] in HomeRepositoryImpl(injection: build()) }
         _contactRepository.initializer = { [unowned self] in ContactRepositoryImpl(injection: build()) }
         _initialRepository.initializer = { [unowned self] in InitialRepositoryImpl(injection: build()) }
+        _wineStatusRepository.initializer = { [unowned self] in WineStatusRepositoryImpl(injection: build()) }
         _storage.initializer =  { [unowned self] in Storage(injection: build()) }
     }
     

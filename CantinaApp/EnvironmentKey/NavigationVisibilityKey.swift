@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct NavigationVisibilityKey: EnvironmentKey {
-    static var defaultValue: Bool = false
+struct SafeAreaKey: EnvironmentKey {
+    static var defaultValue: EdgeInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
 }
 
 extension EnvironmentValues {
-    var isNavigationVisible: Bool {
-        get { self[NavigationVisibilityKey.self] }
-        set { self[NavigationVisibilityKey.self] = newValue }
+    var  safeAreaEdgeInsets: EdgeInsets {
+        get { self[SafeAreaKey.self] }
+        set { self[SafeAreaKey.self] = newValue }
     }
 }

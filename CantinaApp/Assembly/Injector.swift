@@ -31,6 +31,7 @@ extension Injector {
     var clientModuleOutputHomeRepository: CantinaClient.HomeRepository { clientModuleOutput.homeRepository }
     var clientModuleOutputContactRepository: CantinaClient.ContactRepository { clientModuleOutput.contactRepository }
     var clientModuleOutputInitialRepository: CantinaClient.InitialRepository { clientModuleOutput.initialRepository }
+    var clientModuleOutputWineStatusRepository: CantinaClient.WineStatusRepository { clientModuleOutput.wineStatusRepository }
 
 }
 // sourcery:end

@@ -2,12 +2,10 @@ import CantinaAssets
 import SwiftUI
 
 private struct NavigationBarModifier: ViewModifier {
-    @Environment(\.isNavigationVisible) var isNavigationVisible
-    
     func body(content: Content) -> some View {
         content
-            .toolbar(isNavigationVisible ? .visible : .hidden, for: .navigationBar)
-            .toolbarBackground(isNavigationVisible ? .visible : .hidden, for: .navigationBar)
+            .toolbar(.visible, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(Asset.Colors.surface.swiftUIColor, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
     }

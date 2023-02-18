@@ -22,3 +22,5 @@
 "filter.section.grape"  = "Grape variety";
 "filter.section.brand"  = "Brand";
 "filter.section.type"   = "Type";
+"filter.header.title"   = "Filter by:";
+"filter.header.clear"   = "Clear";

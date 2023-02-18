@@ -222,3 +222,35 @@ public class InitialRepositoryMock: InitialRepository {
     }
 
 }
+public class WineStatusRepositoryMock: WineStatusRepository {
+
+    public init() {}
+
+
+    //MARK: - statusDescription
+
+    public var statusDescriptionAtStatusStringThrowableError: Error?
+    public var statusDescriptionAtStatusStringCallsCount = 0
+    public var statusDescriptionAtStatusStringCalled: Bool {
+        return statusDescriptionAtStatusStringCallsCount > 0
+    }
+    public var statusDescriptionAtStatusStringReceivedStatus: String?
+    public var statusDescriptionAtStatusStringReceivedInvocations: [String] = []
+    public var statusDescriptionAtStatusStringReturnValue: String!
+    public var statusDescriptionAtStatusStringClosure: ((String) async throws -> String)?
+
+    public func statusDescription(at status: String) async throws -> String {
+        if let error = statusDescriptionAtStatusStringThrowableError {
+            throw error
+        }
+        statusDescriptionAtStatusStringCallsCount += 1
+        statusDescriptionAtStatusStringReceivedStatus = status
+        statusDescriptionAtStatusStringReceivedInvocations.append(status)
+        if let statusDescriptionAtStatusStringClosure = statusDescriptionAtStatusStringClosure {
+            return try await statusDescriptionAtStatusStringClosure(status)
+        } else {
+            return statusDescriptionAtStatusStringReturnValue
+        }
+    }
+
+}
