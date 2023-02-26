@@ -1,11 +1,5 @@
 // swift-tools-version:5.7
 import PackageDescription
-let pluginsSettings: [Target.PluginUsage]
-#if RELEASE
-    pluginsSettings = []
-#else
-    pluginsSettings = [.plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"), ]
-#endif
 
 let package = Package(
     name: "CantinaAssets",
@@ -25,7 +19,7 @@ let package = Package(
                 resources: [
                     .process("Resources"),
                 ],
-                plugins: pluginsSettings
+                plugins: [.plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"), ]
                ),
     ]
 )
