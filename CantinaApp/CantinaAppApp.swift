@@ -11,7 +11,7 @@ import SwiftUI
 struct CantinaAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           AppEnterView(viewModel: .init(injection: Injector.injector.build()))
         }
     }
 }

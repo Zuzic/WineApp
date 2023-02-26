@@ -1,0 +1,7 @@
+import CantinaLogger
+
+enum Logger: String, CantinaLogger.Logger {
+    var scope: String { "{{ argument.moduleName }}:\(rawValue)".uppercased() }
+
+    case general
+}

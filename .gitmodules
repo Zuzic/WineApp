@@ -1,4 +1,1 @@
 
-[submodule "Packages/SourceryPlugin"]
-	path = Packages/SourceryPlugin
-	url = https://github.com/nullic/SourceryPlugin.git
