@@ -26,5 +26,9 @@ let package = Package(
                 .plugin(name: "SourceryPlugin", package: "SourceryPlugin"),
             ]
         ),
+        .testTarget(
+            name: "CantinaClientTests",
+            dependencies: ["CantinaClient"]
+        ),
     ]
 )

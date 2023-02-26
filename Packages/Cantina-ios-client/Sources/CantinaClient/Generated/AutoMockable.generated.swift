@@ -99,6 +99,33 @@ public class CatalogRepositoryMock: CatalogRepository {
     }
 
 }
+public class ClientModuleDependencyMock: ClientModuleDependency {
+
+    public init() {}
+
+    public var settings: ClientModuleSettings {
+        get { return underlyingSettings }
+        set(value) { underlyingSettings = value }
+    }
+    public var underlyingSettings: ClientModuleSettings!
+
+}
+public class ClientModuleSettingsMock: ClientModuleSettings {
+
+    public init() {}
+
+    public var isFirstLaunch: Bool {
+        get { return underlyingIsFirstLaunch }
+        set(value) { underlyingIsFirstLaunch = value }
+    }
+    public var underlyingIsFirstLaunch: Bool!
+    public var restEndpoint: String {
+        get { return underlyingRestEndpoint }
+        set(value) { underlyingRestEndpoint = value }
+    }
+    public var underlyingRestEndpoint: String!
+
+}
 public class ContactRepositoryMock: ContactRepository {
 
     public init() {}
