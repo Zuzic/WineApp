@@ -1,14 +1,10 @@
 // swift-tools-version:5.7
 import PackageDescription
 let pluginsSettings: [Target.PluginUsage]
-#if DEBUG
-pluginsSettings = [
-    .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"),
-]
+#if RELEASE
+    pluginsSettings = []
 #else
-    pluginsSettings = [
-//        .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"),
-    ]
+    pluginsSettings = [.plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"), ]
 #endif
 
 let package = Package(
