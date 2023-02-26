@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1101B18229AB942F00DA8173 /* CantinaCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 1101B18129AB942F00DA8173 /* CantinaCommon */; };
+		1101B18429AB942F00DA8173 /* CantinaLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 1101B18329AB942F00DA8173 /* CantinaLogger */; };
 		111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */; };
 		112A8F69299571E900B15BB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F5E299571E900B15BB5 /* Logger.swift */; };
 		112A8F6B299571E900B15BB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F60299571E900B15BB5 /* Settings.swift */; };
@@ -73,6 +75,8 @@
 			files = (
 				1161D31C29957D5B00A8DAB7 /* CantinaClient in Frameworks */,
 				1161D31929957CA000A8DAB7 /* CantinaAssets in Frameworks */,
+				1101B18229AB942F00DA8173 /* CantinaCommon in Frameworks */,
+				1101B18429AB942F00DA8173 /* CantinaLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +282,8 @@
 			packageProductDependencies = (
 				1161D31829957CA000A8DAB7 /* CantinaAssets */,
 				1161D31B29957D5B00A8DAB7 /* CantinaClient */,
+				1101B18129AB942F00DA8173 /* CantinaCommon */,
+				1101B18329AB942F00DA8173 /* CantinaLogger */,
 			);
 			productName = CantinaApp;
 			productReference = 11ABF37029912E89000C8168 /* CantinaApp.app */;
@@ -616,6 +622,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1101B18129AB942F00DA8173 /* CantinaCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CantinaCommon;
+		};
+		1101B18329AB942F00DA8173 /* CantinaLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CantinaLogger;
+		};
 		1161D31829957CA000A8DAB7 /* CantinaAssets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CantinaAssets;
