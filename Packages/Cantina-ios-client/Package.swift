@@ -21,10 +21,10 @@ let package = Package(
                 .product(name: "CantinaCommon", package: "Cantina-ios-common"),
                 .product(name: "CantinaLogger", package: "Cantina-ios-common"),
                 .product(name: "CombineMoya", package: "Moya"),
-            ],
-            plugins: [
-                .plugin(name: "SourceryPlugin", package: "SourceryPlugin"),
             ]
+//            plugins: [
+//                .plugin(name: "SourceryPlugin", package: "SourceryPlugin"),
+//            ]
         ),
         .testTarget(
             name: "CantinaClientTests",
