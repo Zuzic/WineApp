@@ -1,6 +1,6 @@
-import StreamsLogger
+import CantinaLogger
 
-enum Logger: String, StreamsLogger.Logger {
+enum Logger: String, CantinaLogger.Logger {
     var scope: String { "Client:\(rawValue)".uppercased() }
 
     case general

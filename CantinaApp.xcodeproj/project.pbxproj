@@ -23,6 +23,8 @@
 		116E449729995D2900ACB318 /* NavigationVisibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449629995D2900ACB318 /* NavigationVisibilityKey.swift */; };
 		116E449A29995EEA00ACB318 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449929995EEA00ACB318 /* NavigationBarModifier.swift */; };
 		116E449C2999603700ACB318 /* TabbarStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449B2999603700ACB318 /* TabbarStyleModifier.swift */; };
+		118C7DF929AB90BC005B94A5 /* CantinaCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 118C7DF829AB90BC005B94A5 /* CantinaCommon */; };
+		118C7DFB29AB90BC005B94A5 /* CantinaLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 118C7DFA29AB90BC005B94A5 /* CantinaLogger */; };
 		11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ABF37329912E89000C8168 /* CantinaAppApp.swift */; };
 		11ABF37C29912E8A000C8168 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */; };
 		11BB8350299D491B004ED310 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB834F299D491B004ED310 /* SplashView.swift */; };
@@ -51,7 +53,7 @@
 		116E449629995D2900ACB318 /* NavigationVisibilityKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVisibilityKey.swift; sourceTree = "<group>"; };
 		116E449929995EEA00ACB318 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		116E449B2999603700ACB318 /* TabbarStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarStyleModifier.swift; sourceTree = "<group>"; };
-		117E088429957B1400A5D2D1 /* SourceryPlugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SourceryPlugin; path = Packages/SourceryPlugin; sourceTree = "<group>"; };
+		118C7DF729AB90A3005B94A5 /* Cantina-ios-common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-common"; path = "Packages/Cantina-ios-common"; sourceTree = "<group>"; };
 		11ABF37029912E89000C8168 /* CantinaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CantinaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ABF37329912E89000C8168 /* CantinaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantinaAppApp.swift; sourceTree = "<group>"; };
 		11ABF37929912E8A000C8168 /* CantinaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CantinaApp.entitlements; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 			files = (
 				1161D31C29957D5B00A8DAB7 /* CantinaClient in Frameworks */,
 				1161D31929957CA000A8DAB7 /* CantinaAssets in Frameworks */,
+				118C7DF929AB90BC005B94A5 /* CantinaCommon in Frameworks */,
+				118C7DFB29AB90BC005B94A5 /* CantinaLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,9 +227,9 @@
 		11ABF3822991359A000C8168 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				117E088429957B1400A5D2D1 /* SourceryPlugin */,
 				1161D31729957C7400A8DAB7 /* Cantina-ios-assets */,
 				1161D31A29957D3700A8DAB7 /* Cantina-ios-client */,
+				118C7DF729AB90A3005B94A5 /* Cantina-ios-common */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -278,6 +282,8 @@
 			packageProductDependencies = (
 				1161D31829957CA000A8DAB7 /* CantinaAssets */,
 				1161D31B29957D5B00A8DAB7 /* CantinaClient */,
+				118C7DF829AB90BC005B94A5 /* CantinaCommon */,
+				118C7DFA29AB90BC005B94A5 /* CantinaLogger */,
 			);
 			productName = CantinaApp;
 			productReference = 11ABF37029912E89000C8168 /* CantinaApp.app */;
@@ -307,6 +313,9 @@
 				Base,
 			);
 			mainGroup = 11ABF36729912E89000C8168;
+			packageReferences = (
+				11C4407E29AB89D0006E1C40 /* XCRemoteSwiftPackageReference "SourceryPlugin" */,
+			);
 			productRefGroup = 11ABF37129912E89000C8168 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,7 +508,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = Z47YDNJ7J9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -542,7 +551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = Z47YDNJ7J9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -601,6 +610,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		11C4407E29AB89D0006E1C40 /* XCRemoteSwiftPackageReference "SourceryPlugin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nullic/SourceryPlugin.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		1161D31829957CA000A8DAB7 /* CantinaAssets */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -609,6 +629,14 @@
 		1161D31B29957D5B00A8DAB7 /* CantinaClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CantinaClient;
+		};
+		118C7DF829AB90BC005B94A5 /* CantinaCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CantinaCommon;
+		};
+		118C7DFA29AB90BC005B94A5 /* CantinaLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CantinaLogger;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

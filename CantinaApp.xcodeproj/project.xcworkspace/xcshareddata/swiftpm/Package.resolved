@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "sourceryplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nullic/SourceryPlugin.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b4870007699ac54744fc4138d75f64c8a7052eb8"
+      }
+    },
+    {
       "identity" : "swiftgenplugin",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftGen/SwiftGenPlugin",

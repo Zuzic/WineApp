@@ -11,15 +11,15 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Moya/Moya.git", from: "15.0.0"),
-        .package(path: "../SourceryPlugin"),
-        .package(path: "../streamscloud-ios-common"),
+        .package(url: "https://github.com/nullic/SourceryPlugin.git", branch: "main"),
+        .package(path: "../Cantina-ios-common"),
     ],
     targets: [
         .target(
             name: "CantinaClient",
             dependencies: [
-                .product(name: "StreamsCommon", package: "streamscloud-ios-common"),
-                .product(name: "StreamsLogger", package: "streamscloud-ios-common"),
+                .product(name: "CantinaCommon", package: "Cantina-ios-common"),
+                .product(name: "CantinaLogger", package: "Cantina-ios-common"),
                 .product(name: "CombineMoya", package: "Moya"),
             ],
             plugins: [

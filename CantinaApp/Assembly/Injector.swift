@@ -3,7 +3,7 @@ import Foundation
 import CantinaClient
 
 // sourcery:end
-import StreamsCommon
+import CantinaCommon
 
 final class Injector {
     // sourcery:inline:Injector.ModuleDefenition

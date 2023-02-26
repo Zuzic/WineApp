@@ -5,7 +5,7 @@ import CantinaClient
 
 // sourcery:end
 import CantinaAssets
-import StreamsCommon
+import CantinaCommon
 
 final class Settings {
     let dataContainerURL: URL = NSPersistentContainer.defaultDirectoryURL()

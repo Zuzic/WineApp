@@ -1,7 +1,1 @@
 
-[submodule "Packages/SourceryPlugin"]
-	path = Packages/SourceryPlugin
-	url = https://github.com/nullic/SourceryPlugin.git
-[submodule "Packages/streamscloud-ios-common"]
-	path = Packages/streamscloud-ios-common
-	url = https://github.com/StreamsCloud/streamscloud-ios-common.git

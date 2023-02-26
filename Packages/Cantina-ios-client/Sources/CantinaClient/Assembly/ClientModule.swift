@@ -1,5 +1,5 @@
+import CantinaCommon
 import Foundation
-import StreamsCommon
 
 // _sourcery:inline:ClientModule.UnwrapModuleDependencyImports
 // _sourcery:end
