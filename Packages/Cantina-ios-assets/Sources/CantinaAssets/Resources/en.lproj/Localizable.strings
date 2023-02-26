@@ -24,3 +24,4 @@
 "filter.section.type"   = "Type";
 "filter.header.title"   = "Filter by:";
 "filter.header.clear"   = "Clear";
+"filter.header.clear1"   = "Clear1";
