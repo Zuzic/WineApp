@@ -35,7 +35,6 @@ struct HomeView: View {
         .refreshable {
             viewModel.onRefresh()
         }
-//        .edgesIgnoringSafeArea(.top)
         .onAppear {
             viewModel.onAppear()
         }

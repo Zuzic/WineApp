@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1101B18229AB942F00DA8173 /* CantinaCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 1101B18129AB942F00DA8173 /* CantinaCommon */; };
 		1101B18429AB942F00DA8173 /* CantinaLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 1101B18329AB942F00DA8173 /* CantinaLogger */; };
+		110869C829AE725A00AC445C /* DevelopedByView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110869C729AE725A00AC445C /* DevelopedByView.swift */; };
 		111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */; };
 		112A8F69299571E900B15BB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F5E299571E900B15BB5 /* Logger.swift */; };
 		112A8F6B299571E900B15BB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8F60299571E900B15BB5 /* Settings.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		1101B18029AB937600DA8173 /* Cantina-ios-common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Cantina-ios-common"; path = "Packages/Cantina-ios-common"; sourceTree = "<group>"; };
+		110869C729AE725A00AC445C /* DevelopedByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopedByView.swift; sourceTree = "<group>"; };
 		111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetailsViewModel.swift; sourceTree = "<group>"; };
 		112A8F5E299571E900B15BB5 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		112A8F60299571E900B15BB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110869C629AE724700AC445C /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				110869C729AE725A00AC445C /* DevelopedByView.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
 		112A8F5D299571E900B15BB5 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 		11ABF37229912E89000C8168 /* CantinaApp */ = {
 			isa = PBXGroup;
 			children = (
+				110869C629AE724700AC445C /* UI Components */,
 				116E449829995ECB00ACB318 /* Modifiers */,
 				116E449529995D2000ACB318 /* EnvironmentKey */,
 				11C212372998FE7E00D03E24 /* Info.plist */,
@@ -379,6 +390,7 @@
 				112A8F6B299571E900B15BB5 /* Settings.swift in Sources */,
 				116E44882999090100ACB318 /* CatalogViewModel.swift in Sources */,
 				116E448C2999093B00ACB318 /* HomeViewModel.swift in Sources */,
+				110869C829AE725A00AC445C /* DevelopedByView.swift in Sources */,
 				112A8F69299571E900B15BB5 /* Logger.swift in Sources */,
 				11BF3A2A2997D7700017BE45 /* ContactsView.swift in Sources */,
 				11BB8350299D491B004ED310 /* SplashView.swift in Sources */,
@@ -508,14 +520,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Z47YDNJ7J9;
+				DEVELOPMENT_TEAM = 78BB3NNC56;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CantinaApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Cantina;
+				INFOPLIST_KEY_CFBundleDisplayName = "Antica Hirpinia\n";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -532,12 +544,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zuzic.CantinaApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anticahirpinia.AnticaHirpiniaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -551,14 +564,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Z47YDNJ7J9;
+				DEVELOPMENT_TEAM = 78BB3NNC56;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CantinaApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Cantina;
+				INFOPLIST_KEY_CFBundleDisplayName = "Antica Hirpinia\n";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -575,12 +588,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zuzic.CantinaApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anticahirpinia.AnticaHirpiniaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

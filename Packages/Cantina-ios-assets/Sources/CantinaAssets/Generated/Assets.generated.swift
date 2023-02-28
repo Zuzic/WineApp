@@ -35,6 +35,9 @@ public enum Asset {
     public static let textSecondary = ColorAsset(name: "Text.Secondary")
   }
   public enum Icons {
+    public enum Flags {
+      public static let euFlag = ImageAsset(name: "Flags/eu.flag")
+    }
     public enum Tmp {
       public static let bottleWineTMP = ImageAsset(name: "TMP/bottleWineTMP")
       public static let contactsTMP = ImageAsset(name: "TMP/contactsTMP")

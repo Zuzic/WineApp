@@ -22,6 +22,14 @@ public enum L10n {
     /// Follow us
     public static let followUs = L10n.tr("Localizable", "contacts.follow_us", fallback: "Follow us")
   }
+  public enum Developed {
+    /// Developed by 
+    public static let by = L10n.tr("Localizable", "developed.by", fallback: "Developed by ")
+    /// 🇪🇺
+    public static let flag = L10n.tr("Localizable", "developed.flag", fallback: "🇪🇺")
+    /// CA Technologies S.R.L.
+    public static let owner = L10n.tr("Localizable", "developed.owner", fallback: "CA Technologies S.R.L.")
+  }
   public enum Docg {
     /// Our wines have the highest quality status as per the Italian classification of the origins: DOCG  (Denominazione di Origine Controllata e Garantita) and DOC (Denominazione di Origine Controllata). 
     /// 

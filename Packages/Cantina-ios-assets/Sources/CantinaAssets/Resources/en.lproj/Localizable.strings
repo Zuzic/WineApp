@@ -24,3 +24,7 @@
 "filter.section.type"   = "Type";
 "filter.header.title"   = "Filter by:";
 "filter.header.clear"   = "Clear";
+
+"developed.by" = "Developed by ";
+"developed.owner" = "CA Technologies S.R.L.";
+"developed.flag" = "🇪🇺";
