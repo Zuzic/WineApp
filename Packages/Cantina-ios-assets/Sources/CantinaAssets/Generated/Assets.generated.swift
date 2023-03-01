@@ -38,6 +38,7 @@ public enum Asset {
     public enum Flags {
       public static let euFlag = ImageAsset(name: "Flags/eu.flag")
     }
+    public static let logo = ImageAsset(name: "Logo")
     public enum Tmp {
       public static let bottleWineTMP = ImageAsset(name: "TMP/bottleWineTMP")
       public static let contactsTMP = ImageAsset(name: "TMP/contactsTMP")
@@ -60,7 +61,6 @@ public enum Asset {
     public static let filter = ImageAsset(name: "filter")
     public static let glassWine = ImageAsset(name: "glass.wine")
     public static let grape = ImageAsset(name: "grape")
-    public static let logo = ImageAsset(name: "logo")
     public static let logoSplash = ImageAsset(name: "logo.splash")
     public enum Tabbar {
       public static let catalog = ImageAsset(name: "tabbar/catalog")

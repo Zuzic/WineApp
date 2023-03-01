@@ -3,7 +3,7 @@ import SwiftUI
 
 struct DevelopedByView: View {
     var body: some View {
-        HStack(alignment: .lastTextBaseline) {
+        HStack(alignment: .lastTextBaseline, spacing: 3) {
             Text(L10n.Developed.by)
                 .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
                 .font(Fonts.caption)
