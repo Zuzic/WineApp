@@ -107,6 +107,18 @@ final class CatalogViewModel: ObservableObject {
         filterQuery = .init(sections: items)
     }
     
+    func removeFilter(item: WineFilterItemOutputModel) {
+        let section = filterQuery.sections.first { section in
+            switch section {
+            case .grape(let items): return items.contains(where: { $0.id == item.id })
+            case .type(let items): return items.contains(where: { $0.id == item.id })
+            case .brand(let items): return items.contains(where: { $0.id == item.id })
+            }
+        }
+        guard let section else { return }
+        filter(item: item, type: section)
+    }
+    
     func resetFilter() {
         filterQuery = .init(sections: [.type([]), .brand([]), .grape([])])
     }

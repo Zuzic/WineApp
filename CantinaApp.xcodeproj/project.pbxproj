@@ -35,6 +35,8 @@
 		11BF3A2C2997D7890017BE45 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A2B2997D7890017BE45 /* HomeView.swift */; };
 		11BF3A2E2997E0140017BE45 /* AppEnterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF3A2D2997E0140017BE45 /* AppEnterViewModel.swift */; };
 		11C212362998FE0600D03E24 /* Injections.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C212352998FE0600D03E24 /* Injections.generated.swift */; };
+		11D05D6829B12D6000585D5D /* FilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D05D6729B12D6000585D5D /* FilterTagView.swift */; };
+		11F6948929B11BAF006C73DB /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 11F6948829B11BAF006C73DB /* SFSafeSymbols */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,7 @@
 		11BF3A2D2997E0140017BE45 /* AppEnterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnterViewModel.swift; sourceTree = "<group>"; };
 		11C212352998FE0600D03E24 /* Injections.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injections.generated.swift; sourceTree = "<group>"; };
 		11C212372998FE7E00D03E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		11D05D6729B12D6000585D5D /* FilterTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F6948929B11BAF006C73DB /* SFSafeSymbols in Frameworks */,
 				1161D31C29957D5B00A8DAB7 /* CantinaClient in Frameworks */,
 				1161D31929957CA000A8DAB7 /* CantinaAssets in Frameworks */,
 				1101B18229AB942F00DA8173 /* CantinaCommon in Frameworks */,
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				110869C729AE725A00AC445C /* DevelopedByView.swift */,
+				11D05D6729B12D6000585D5D /* FilterTagView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				11F6948629B10BB8006C73DB /* PBXTargetDependency */,
 			);
 			name = CantinaApp;
 			packageProductDependencies = (
@@ -295,6 +301,7 @@
 				1161D31B29957D5B00A8DAB7 /* CantinaClient */,
 				1101B18129AB942F00DA8173 /* CantinaCommon */,
 				1101B18329AB942F00DA8173 /* CantinaLogger */,
+				11F6948829B11BAF006C73DB /* SFSafeSymbols */,
 			);
 			productName = CantinaApp;
 			productReference = 11ABF37029912E89000C8168 /* CantinaApp.app */;
@@ -326,6 +333,7 @@
 			mainGroup = 11ABF36729912E89000C8168;
 			packageReferences = (
 				11C4407E29AB89D0006E1C40 /* XCRemoteSwiftPackageReference "SourceryPlugin" */,
+				11F6948729B11BAF006C73DB /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = 11ABF37129912E89000C8168 /* Products */;
 			projectDirPath = "";
@@ -379,6 +387,7 @@
 				116E449C2999603700ACB318 /* TabbarStyleModifier.swift in Sources */,
 				116E449A29995EEA00ACB318 /* NavigationBarModifier.swift in Sources */,
 				11BF3A282997D74A0017BE45 /* CatalogView.swift in Sources */,
+				11D05D6829B12D6000585D5D /* FilterTagView.swift in Sources */,
 				116E449729995D2900ACB318 /* NavigationVisibilityKey.swift in Sources */,
 				11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */,
 				111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */,
@@ -400,6 +409,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11F6948629B10BB8006C73DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 11F6948529B10BB8006C73DB /* SourceryPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		11ABF37D29912E8A000C8168 /* Debug */ = {
@@ -520,7 +536,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 78BB3NNC56;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -564,7 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 78BB3NNC56;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -633,6 +649,14 @@
 				kind = branch;
 			};
 		};
+		11F6948729B11BAF006C73DB /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -651,6 +675,16 @@
 		1161D31B29957D5B00A8DAB7 /* CantinaClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CantinaClient;
+		};
+		11F6948529B10BB8006C73DB /* SourceryPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11C4407E29AB89D0006E1C40 /* XCRemoteSwiftPackageReference "SourceryPlugin" */;
+			productName = "plugin:SourceryPlugin";
+		};
+		11F6948829B11BAF006C73DB /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11F6948729B11BAF006C73DB /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

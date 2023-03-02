@@ -14,32 +14,44 @@ struct CatalogView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.catalog, id: \.id) { item in
-                    VStack {
-                        CatalogCell(wine: item)
-                            .padding(.horizontal)
-                        
-                        Divider()
+            VStack {
+                if !viewModel.allFilterItems.isEmpty {
+                    FilterTagView(tags: viewModel.allFilterItems) { item in
+                        viewModel.removeFilter(item: item)
                     }
-                    .background(NavigationLink("", destination: WineDetailsView(viewModel: viewModel.preparedWineDetailsViewModel(at: item))).opacity(0) )
-                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Asset.Colors.surface.swiftUIColor)
+                        .padding(.top)
+                        .padding(.horizontal)
                 }
+                
+                List {
+                    ForEach(viewModel.catalog, id: \.id) { item in
+                        VStack {
+                            CatalogCell(wine: item)
+                                .padding(.horizontal)
+                            
+                            Divider()
+                        }
+                        .background(NavigationLink("", destination: WineDetailsView(viewModel: viewModel.preparedWineDetailsViewModel(at: item))).opacity(0) )
+                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Asset.Colors.surface.swiftUIColor)
+                    }
+                }
+                .listStyle(.plain)
+                .overlay(
+                    Group {
+                        if viewModel.catalog.isEmpty,
+                           !viewModel.rootCatalog.isEmpty {
+                            Text(L10n.Catalog.placeholder)
+                                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                .font(Fonts.body1)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                )
+                .background(Asset.Colors.surface.swiftUIColor)
             }
-            .listStyle(.plain)
-            .overlay(
-                Group {
-                    if viewModel.catalog.isEmpty,
-                       !viewModel.rootCatalog.isEmpty {
-                        Text(L10n.Catalog.placeholder)
-                            .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
-                            .font(Fonts.body1)
-                            .multilineTextAlignment(.center)
-                    }
-                }
-            )
+            .background(Asset.Colors.surface.swiftUIColor)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Asset.Icons.logo.swiftUIImage
@@ -134,14 +146,13 @@ struct CatalogView: View {
                         .padding(.horizontal, 32)
                         .background(GeometryReader { proxy in
                             Color.clear.onAppear {
-                                self.filterHeight = proxy.size.height + 50
+                                self.filterHeight = proxy.size.height + 70
                             }
                         })
                     }
                 }
                 .presentationDetents([.height(self.filterHeight)])
                 .presentationDragIndicator(.visible)
-                
             }
         }
     }
