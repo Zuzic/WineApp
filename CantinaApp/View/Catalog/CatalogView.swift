@@ -29,6 +29,17 @@ struct CatalogView: View {
                 }
             }
             .listStyle(.plain)
+            .overlay(
+                Group {
+                    if viewModel.catalog.isEmpty,
+                       !viewModel.rootCatalog.isEmpty {
+                        Text(L10n.Catalog.placeholder)
+                            .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                            .font(Fonts.body1)
+                            .multilineTextAlignment(.center)
+                    }
+                }
+            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Asset.Icons.logo.swiftUIImage
@@ -43,7 +54,7 @@ struct CatalogView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     filterNavbarIcon
-                   
+                    
                 }
             }
             .adoptNavigationBar()
@@ -142,7 +153,7 @@ struct CatalogView: View {
     private var filterNavbarIcon: some View {
         HStack(spacing: 2) {
             Asset.Icons.filter.swiftUIImage
-
+            
             if viewModel.allFilterItems.count > 0 {
                 Text("\(viewModel.allFilterItems.count)")
                     .frame(width: 20, height: 20)

@@ -33,7 +33,7 @@ struct CatalogCell: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text("\(wine.region) \n\(wine.brand)")
-                    .font(Fonts.caption)
+                    .font(Fonts.caption1)
                     .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 

@@ -11,6 +11,9 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum L10n {
   public enum Catalog {
+    /// We’re sorry.
+    /// We do not have what you’re looking for.
+    public static let placeholder = L10n.tr("Localizable", "catalog.placeholder", fallback: "We’re sorry.\nWe do not have what you’re looking for.")
     public enum Item {
       /// Status: %@
       public static func status(_ p1: Any) -> String {
@@ -25,6 +28,8 @@ public enum L10n {
   public enum Developed {
     /// Developed by
     public static let by = L10n.tr("Localizable", "developed.by", fallback: "Developed by")
+    /// CAMPAIGN FINANCED ACCORDING TO EC REGULATION No.1308/13
+    public static let campaing = L10n.tr("Localizable", "developed.campaing", fallback: "CAMPAIGN FINANCED ACCORDING TO EC REGULATION No.1308/13")
     /// 🇪🇺
     public static let flag = L10n.tr("Localizable", "developed.flag", fallback: "🇪🇺")
     /// CA Technologies S.R.L.

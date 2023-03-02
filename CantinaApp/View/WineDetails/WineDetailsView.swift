@@ -50,7 +50,7 @@ struct WineDetailsView: View {
                         }
                         
                         Text("\(viewModel.wine.region) \n\(viewModel.wine.brand)")
-                            .font(Fonts.caption)
+                            .font(Fonts.caption1)
                             .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         

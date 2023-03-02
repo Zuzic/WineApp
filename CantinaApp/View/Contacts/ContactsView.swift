@@ -25,8 +25,9 @@ struct ContactsView: View {
                 .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, Constants.horizontalPadding)
-                .padding(.bottom, 32)
                 .padding(.top, 16)
+            
+            Spacer()
             
             Text(viewModel.contactsInfo?.address ?? "")
                 .font(Fonts.body1)

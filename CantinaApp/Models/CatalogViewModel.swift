@@ -14,9 +14,9 @@ final class CatalogViewModel: ObservableObject {
     @Published var filterQuery: WineFilterOutputModel
     private(set) var filter: WineFilterOutputModel?
     
-    private var rootCatalog: [WineOutputModel] = [] {
+    private(set) var rootCatalog: [WineOutputModel] = [] {
         didSet {
-            catalog = rootCatalog
+            catalog = applySearchAndFilter(at: filterQuery)
         }
     }
     
@@ -47,8 +47,8 @@ final class CatalogViewModel: ObservableObject {
                 let filter = await injection.catalogRepository.filter()
                 
                 await MainActor.run {
-                    self.rootCatalog = result
                     self.filter = filter
+                    self.rootCatalog = result
                 }
             }
         }
@@ -122,17 +122,20 @@ private extension CatalogViewModel {
             .receive(on: DispatchQueue.main)
             .map { [weak self] _ in
                 guard let self else { return [] }
-                let items = self.filteredItems(for: self.filterQuery)
-                return self.searchedItems(for: self.searchQuery, items: items)
+                return self.applySearchAndFilter(at: self.filterQuery)
             }.assign(to: &$catalog)
         
         $filterQuery
             .receive(on: DispatchQueue.main)
             .map { [weak self] value in
                 guard let self else { return [] }
-                let items = self.filteredItems(for: value)
-                return self.searchedItems(for: self.searchQuery, items: items)
+                return self.applySearchAndFilter(at: value)
             }.assign(to: &$catalog)
+    }
+    
+    func applySearchAndFilter(at filter: WineFilterOutputModel) -> [WineOutputModel] {
+        let items = self.filteredItems(for: filter)
+        return self.searchedItems(for: self.searchQuery, items: items)
     }
     
     func filteredItems(for filterQuery: WineFilterOutputModel) -> [WineOutputModel] {

@@ -8,6 +8,7 @@
 
 // MARK: - catalog
 "catalog.item.status" = "Status: %@";
+"catalog.placeholder" = "We’re sorry.\nWe do not have what you’re looking for.";
 
 // MARK: - docg
 "docg.title"    = "Status of quality";
@@ -27,3 +28,4 @@
 "developed.by" = "Developed by";
 "developed.owner" = "CA Technologies S.R.L.";
 "developed.flag" = "🇪🇺";
+"developed.campaing" = "CAMPAIGN FINANCED ACCORDING TO EC REGULATION No.1308/13";

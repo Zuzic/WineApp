@@ -3,18 +3,27 @@ import SwiftUI
 
 struct DevelopedByView: View {
     var body: some View {
-        HStack(alignment: .lastTextBaseline, spacing: 3) {
-            Text(L10n.Developed.by)
-                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
-                .font(Fonts.caption)
+        VStack {
+            VStack(alignment: .center) {
+                Text(L10n.Developed.flag)
+                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .font(Fonts.body1)
+                
+                Text(L10n.Developed.campaing)
+                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .font(Fonts.caption2)
+            }
             
-            Text(L10n.Developed.owner)
-                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
-                .font(Fonts.caption)
-            
-            Text(L10n.Developed.flag)
-                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
-                .font(Fonts.body1)
+            HStack(alignment: .lastTextBaseline, spacing: 3) {
+                Text(L10n.Developed.by)
+                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .font(Fonts.caption2)
+                
+                Text(L10n.Developed.owner)
+                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .font(Fonts.caption2)
+                
+            }
         }
     }
 }

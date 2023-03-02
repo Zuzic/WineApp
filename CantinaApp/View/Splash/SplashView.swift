@@ -40,7 +40,7 @@ struct SplashView: View {
                 ProgressView()
                 
                 Text(L10n.Splash.progress)
-                    .font(Fonts.caption)
+                    .font(Fonts.caption1)
                     .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
             }
             .padding(.top, 20)
