@@ -19,6 +19,11 @@ final class ContactsViewModel: ObservableObject {
         return URL(string: "tel://\(phone.onlyDigits())")
     }
     
+    var faxURL: URL? {
+        guard let fax = contactsInfo?.fax else { return nil }
+        return URL(string: "tel://\(fax.onlyDigits())")
+    }
+    
     private let injection: ContactsViewModelInjection
     
     init(injection: ContactsViewModelInjection) {

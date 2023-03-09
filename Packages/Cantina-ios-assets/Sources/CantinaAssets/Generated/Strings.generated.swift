@@ -56,8 +56,8 @@ public enum L10n {
     }
   }
   public enum Splash {
-    /// Lear more about our story full of passion for wine and for Italy land
-    public static let desc = L10n.tr("Localizable", "splash.desc", fallback: "Lear more about our story full of passion for wine and for Italy land")
+    /// Learn more about our story full of passion for wine and for Italy land
+    public static let desc = L10n.tr("Localizable", "splash.desc", fallback: "Learn more about our story full of passion for wine and for Italy land")
     /// Preparing...
     public static let progress = L10n.tr("Localizable", "splash.progress", fallback: "Preparing...")
     /// Welcome

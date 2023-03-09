@@ -46,6 +46,10 @@ struct ContactsView: View {
                 
                 contactItem(icon: Asset.Icons.Contacts.fax.swiftUIImage,
                             text: viewModel.contactsInfo?.fax)
+                .onTapGesture {
+                    guard let call = viewModel.faxURL else { return }
+                    openURL(call)
+                }
                 
                 contactItem(icon: Asset.Icons.Contacts.email.swiftUIImage,
                             text: viewModel.contactsInfo?.email)

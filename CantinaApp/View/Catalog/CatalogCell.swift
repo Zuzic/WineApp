@@ -32,6 +32,13 @@ struct CatalogCell: View {
                     .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
+                if let subname = wine.subname {
+                    Text(subname)
+                        .font(Fonts.body1)
+                        .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                
                 Text("\(wine.region) \n\(wine.brand)")
                     .font(Fonts.caption1)
                     .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
