@@ -5,7 +5,7 @@ struct DataResponse: Codable {
     let catalog: [WineOutputModel]
     let contact: ContactOutputModel
     let metadata: MetadataOutputModel
-    
+
     enum CodingKeys: String, CodingKey {
         case home
         case catalog

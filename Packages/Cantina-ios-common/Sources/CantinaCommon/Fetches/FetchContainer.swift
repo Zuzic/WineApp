@@ -36,7 +36,7 @@ open class FetchContainer<Model> {
         let items = await fetcher.fetchedItems
         if let index = items.firstIndex(where: { comparator(item, $0) }) {
             if index > (items.count - fetcher.pageSize) {
-               try await fetchMore()
+                try await fetchMore()
             }
         }
     }

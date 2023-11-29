@@ -4,11 +4,6 @@ struct LoginRequestModel: Encodable {
     let username: String
     let password: String
 
-    init(username: String, password: String) {
-        self.password = password
-        self.username = username
-    }
-
     enum CodingKeys: String, CodingKey {
         case username
         case password

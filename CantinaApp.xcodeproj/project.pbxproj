@@ -293,7 +293,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				11F6948629B10BB8006C73DB /* PBXTargetDependency */,
 			);
 			name = CantinaApp;
 			packageProductDependencies = (
@@ -315,7 +314,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					11ABF36F29912E89000C8168 = {
 						CreatedOnToolsVersion = 14.2;
@@ -410,13 +409,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		11F6948629B10BB8006C73DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 11F6948529B10BB8006C73DB /* SourceryPlugin */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		11ABF37D29912E8A000C8168 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -451,9 +443,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -510,9 +504,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -537,6 +533,7 @@
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 78BB3NNC56;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -581,6 +578,7 @@
 				CODE_SIGN_ENTITLEMENTS = CantinaApp/CantinaApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CantinaApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 78BB3NNC56;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -675,11 +673,6 @@
 		1161D31B29957D5B00A8DAB7 /* CantinaClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CantinaClient;
-		};
-		11F6948529B10BB8006C73DB /* SourceryPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11C4407E29AB89D0006E1C40 /* XCRemoteSwiftPackageReference "SourceryPlugin" */;
-			productName = "plugin:SourceryPlugin";
 		};
 		11F6948829B11BAF006C73DB /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;

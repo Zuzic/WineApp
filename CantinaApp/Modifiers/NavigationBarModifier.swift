@@ -23,10 +23,10 @@ private struct TransparentNavigationBarModifier: ViewModifier {
 
 extension View {
     func adoptNavigationBar() -> some View {
-        self.modifier(NavigationBarModifier())
+        modifier(NavigationBarModifier())
     }
-    
+
     func transparentNavigationBar() -> some View {
-        self.modifier(TransparentNavigationBarModifier())
+        modifier(TransparentNavigationBarModifier())
     }
 }

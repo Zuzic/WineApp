@@ -19,12 +19,12 @@ final class ContactRepositoryImpl: ContactRepository {
     init(injection: ContactRepositoryInjection) {
         self.injection = injection
     }
-    
+
     func contactInfo() async throws -> ContactOutputModel {
         guard let contact = injection.storage.data?.contact else { throw NetworkingError.missingData }
         return contact
     }
-    
+
     func refreshContactInfo() async throws -> ContactOutputModel {
         try await injection.initialRepository.loadInitialData()
         return try await contactInfo()

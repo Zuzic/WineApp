@@ -66,7 +66,7 @@ final class RestApiClient: MoyaProvider<DynamicTarget<RestApiRouter>> {
                     }.eraseToAnyPublisher()
                 case 200 ..< 300, 400 ..< 500:
                     return Future { promise in
-                            promise(.success(response.data))
+                        promise(.success(response.data))
                     }.eraseToAnyPublisher()
                 default:
                     let resultError = NSError.serverError(url: response.request?.url,

@@ -2,7 +2,7 @@ import Foundation
 
 public struct WineFilterOutputModel {
     public let sections: [WineFilterSectionOutputModel]
-    
+
     public init(sections: [WineFilterSectionOutputModel]) {
         self.sections = sections
     }
@@ -17,7 +17,7 @@ public enum WineFilterSectionOutputModel {
 public struct WineFilterItemOutputModel: Identifiable {
     public let title: String
     public let id: String
-    
+
     init(title: String) {
         self.title = title
         self.id = UUID().uuidString

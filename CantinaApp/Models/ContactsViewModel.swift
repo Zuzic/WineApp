@@ -8,33 +8,33 @@ protocol ContactsViewModelInjection {
 
 final class ContactsViewModel: ObservableObject {
     @Published var contactsInfo: ContactOutputModel?
-    
+
     var mailURL: URL? {
         guard let email = contactsInfo?.email else { return nil }
         return URL(string: "mailto:\(email)")
     }
-    
+
     var callURL: URL? {
         guard let phone = contactsInfo?.phone else { return nil }
         return URL(string: "tel://\(phone.onlyDigits())")
     }
-    
+
     var faxURL: URL? {
         guard let fax = contactsInfo?.fax else { return nil }
         return URL(string: "tel://\(fax.onlyDigits())")
     }
-    
+
     private let injection: ContactsViewModelInjection
-    
+
     init(injection: ContactsViewModelInjection) {
         self.injection = injection
     }
-    
+
     func onAppear() {
         Task {
             do {
                 let result = try await injection.contactRepository.contactInfo()
-                
+
                 await MainActor.run {
                     self.contactsInfo = result
                 }
@@ -43,12 +43,12 @@ final class ContactsViewModel: ObservableObject {
             }
         }
     }
-    
+
     func onRefresh() {
         Task {
             do {
                 let result = try await injection.contactRepository.refreshContactInfo()
-                
+
                 await MainActor.run {
                     self.contactsInfo = result
                 }
@@ -60,6 +60,7 @@ final class ContactsViewModel: ObservableObject {
 }
 
 // MARK: -
+
 private extension String {
     func onlyDigits() -> String {
         let filtredUnicodeScalars = unicodeScalars.filter { CharacterSet.decimalDigits.contains($0) }

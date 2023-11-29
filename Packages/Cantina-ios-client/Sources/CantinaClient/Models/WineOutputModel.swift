@@ -12,7 +12,7 @@ public struct WineOutputModel: Codable {
     public let image: URL?
     public let status: String
     public let subname: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case name

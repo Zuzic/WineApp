@@ -6,9 +6,9 @@ import SwiftUI
 struct FilterTagView: View {
     private let tags: [WineFilterItemOutputModel]
     private let action: (WineFilterItemOutputModel) -> Void
-    
+
     @State private var totalHeight = CGFloat.infinity
-    
+
     var body: some View {
         VStack {
             GeometryReader { geometry in
@@ -17,16 +17,16 @@ struct FilterTagView: View {
         }
         .frame(maxHeight: totalHeight)
     }
-    
+
     init(tags: [WineFilterItemOutputModel], action: @escaping (WineFilterItemOutputModel) -> Void) {
         self.tags = tags
         self.action = action
     }
-    
+
     private func generateContent(in g: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
-        
+
         return ZStack(alignment: .topLeading) {
             ForEach(self.tags, id: \.id) { tag in
                 self.itemView(for: tag)
@@ -44,7 +44,7 @@ struct FilterTagView: View {
                         }
                         return result
                     })
-                    .alignmentGuide(.top, computeValue: {_ in
+                    .alignmentGuide(.top, computeValue: { _ in
                         let result = height
                         if tag.id == self.tags.last!.id {
                             height = 0
@@ -54,12 +54,12 @@ struct FilterTagView: View {
             }
         }.background(viewHeightReader($totalHeight))
     }
-    
+
     private func itemView(for item: WineFilterItemOutputModel) -> some View {
         Group {
-            HStack(spacing: 4){
+            HStack(spacing: 4) {
                 Text(item.title.capitalized)
-                
+
                 Image(systemSymbol: .xmark)
             }
             .font(Fonts.caption1)
@@ -75,7 +75,7 @@ struct FilterTagView: View {
             action(item)
         }
     }
-    
+
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
         return GeometryReader { geometry -> Color in
             let rect = geometry.frame(in: .local)

@@ -2,7 +2,7 @@ import Foundation
 
 struct MetadataOutputModel: Codable {
     let status: [WineStatusOutputModel]
-    
+
     enum CodingKeys: String, CodingKey {
         case status
     }

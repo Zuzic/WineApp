@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -18,8 +18,6 @@ let package = Package(
                 dependencies: [],
                 resources: [
                     .process("Resources"),
-                ],
-                plugins: [.plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"), ]
-               ),
+                ]),
     ]
 )

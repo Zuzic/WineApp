@@ -3,7 +3,7 @@ import Foundation
 public struct WineDescriptionOutputModel: Codable {
     public let title: String
     public let value: String
-    
+
     enum CodingKeys: String, CodingKey {
         case title
         case value

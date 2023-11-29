@@ -1,11 +1,11 @@
 import SwiftUI
 
 public enum Fonts {
-    static public var header1: Font { .system(size: 31, weight: .bold) }
-    static public var header2: Font { .system(size: 26, weight: .medium) }
-    static public var header3: Font { .system(size: 22, weight: .medium) }
-    static public var button: Font { .system(size: 22, weight: .medium) }
-    static public var body1: Font { .system(size: 18, weight: .medium) }
-    static public var caption1: Font { .system(size: 13, weight: .regular) }
-    static public var caption2: Font { .system(size: 9, weight: .regular) }
+    public static var header1: Font { .system(size: 31, weight: .bold) }
+    public static var header2: Font { .system(size: 26, weight: .medium) }
+    public static var header3: Font { .system(size: 22, weight: .medium) }
+    public static var button: Font { .system(size: 22, weight: .medium) }
+    public static var body1: Font { .system(size: 18, weight: .medium) }
+    public static var caption1: Font { .system(size: 13, weight: .regular) }
+    public static var caption2: Font { .system(size: 9, weight: .regular) }
 }

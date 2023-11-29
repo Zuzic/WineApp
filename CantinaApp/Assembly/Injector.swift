@@ -1,4 +1,3 @@
-import Foundation
 // sourcery:inline:Injector.ModuleImports
 import CantinaClient
 
@@ -8,7 +7,7 @@ import CantinaCommon
 final class Injector {
     // sourcery:inline:Injector.ModuleDefenition
     @LazyAtomic private(set) var clientModuleOutput: ClientModuleOutput
-   
+
     // sourcery:end
 
     static let injector = Injector()
@@ -18,7 +17,7 @@ final class Injector {
     private init() {
         // sourcery:inline:Injector.ModuleInitialization
         _clientModuleOutput.initializer = { [unowned self] in ClientModule(injection: build()) }
-      
+
         // sourcery:end
     }
 }
@@ -27,11 +26,11 @@ final class Injector {
 // swiftlint: disable: identifier_name
 extension Injector {
     // MARK: - ClientModuleOutput
+
     var clientModuleOutputCatalogRepository: CantinaClient.CatalogRepository { clientModuleOutput.catalogRepository }
     var clientModuleOutputHomeRepository: CantinaClient.HomeRepository { clientModuleOutput.homeRepository }
     var clientModuleOutputContactRepository: CantinaClient.ContactRepository { clientModuleOutput.contactRepository }
     var clientModuleOutputInitialRepository: CantinaClient.InitialRepository { clientModuleOutput.initialRepository }
     var clientModuleOutputWineStatusRepository: CantinaClient.WineStatusRepository { clientModuleOutput.wineStatusRepository }
-
 }
 // sourcery:end

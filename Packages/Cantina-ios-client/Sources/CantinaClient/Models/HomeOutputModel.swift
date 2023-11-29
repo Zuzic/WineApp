@@ -3,7 +3,7 @@ import Foundation
 public struct HomeOutputModel: Codable {
     public let title: String
     public let desc: String
-    
+
     enum CodingKeys: String, CodingKey {
         case title
         case desc

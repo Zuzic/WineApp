@@ -8,18 +8,18 @@ protocol HomeViewModelInjection {
 
 final class HomeViewModel: ObservableObject {
     @Published var homeInfo: HomeOutputModel?
-    
+
     private let injection: HomeViewModelInjection
-    
+
     init(injection: HomeViewModelInjection) {
         self.injection = injection
     }
-    
+
     func onAppear() {
         Task {
             do {
                 let result = try await injection.homeRepository.homeInfo()
-                
+
                 await MainActor.run {
                     self.homeInfo = result
                 }
@@ -28,12 +28,12 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
-    
+
     func onRefresh() {
         Task {
             do {
                 let result = try await injection.homeRepository.homeInfo()
-                
+
                 await MainActor.run {
                     self.homeInfo = result
                 }

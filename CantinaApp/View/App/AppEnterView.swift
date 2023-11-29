@@ -4,7 +4,7 @@ import SwiftUI
 struct AppEnterView: View {
     @ObservedObject private var viewModel: AppEnterViewModel
     @State private var safeAreaInsets: EdgeInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
-    
+
     var body: some View {
         VStack {
             switch viewModel.appMode {
@@ -25,7 +25,7 @@ struct AppEnterView: View {
         )
         .environment(\.safeAreaEdgeInsets, safeAreaInsets)
     }
-    
+
     init(viewModel: AppEnterViewModel) {
         self.viewModel = viewModel
     }
@@ -41,7 +41,7 @@ private extension AppEnterView {
         .accentColor(Asset.Colors.accents.swiftUIColor)
         .applyTabbarStyle()
     }
-    
+
     var catalog: some View {
         CatalogView(viewModel: viewModel.catalogViewModel)
             .tabItem {
@@ -51,7 +51,7 @@ private extension AppEnterView {
                 }
             }
     }
-    
+
     var home: some View {
         HomeView(viewModel: viewModel.homeViewModel)
             .tabItem {
@@ -61,7 +61,7 @@ private extension AppEnterView {
                 }
             }
     }
-    
+
     var contacts: some View {
         ContactsView(viewModel: viewModel.contactsViewModel)
             .tabItem {
@@ -74,6 +74,7 @@ private extension AppEnterView {
 }
 
 // MARK: -
+
 extension AppTabs {
     var title: some View {
         switch self {
@@ -82,7 +83,7 @@ extension AppTabs {
         case .contact: return Text(L10n.Tab.contacts)
         }
     }
-    
+
     var icon: some View {
         switch self {
         case .home: return Asset.Icons.Tabbar.myWines.swiftUIImage

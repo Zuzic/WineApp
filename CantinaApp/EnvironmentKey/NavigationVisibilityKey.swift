@@ -5,7 +5,7 @@ struct SafeAreaKey: EnvironmentKey {
 }
 
 extension EnvironmentValues {
-    var  safeAreaEdgeInsets: EdgeInsets {
+    var safeAreaEdgeInsets: EdgeInsets {
         get { self[SafeAreaKey.self] }
         set { self[SafeAreaKey.self] = newValue }
     }

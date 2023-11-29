@@ -1,7 +1,7 @@
 import CantinaAssets
 import SwiftUI
 
-private struct Constants {
+private enum Constants {
     static let aspectRation: CGSize = .init(width: 390, height: 264)
     static let horizontalPadding: CGFloat = 24
 }
@@ -9,9 +9,9 @@ private struct Constants {
 struct ContactsView: View {
     @ObservedObject private var viewModel: ContactsViewModel
     @Environment(\.openURL) var openURL
-    
+
     @State private var screenWidth: CGFloat = 0
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Asset.Icons.Tmp.contactsTMP.swiftUIImage
@@ -19,54 +19,54 @@ struct ContactsView: View {
                 .frame(height: 264)
                 .aspectRatio(Constants.aspectRation, contentMode: .fill)
                 .clipped()
-            
+
             Text(viewModel.contactsInfo?.name ?? "")
                 .font(Fonts.header3)
                 .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, Constants.horizontalPadding)
                 .padding(.top, 16)
-            
+
             Spacer()
-            
+
             Text(viewModel.contactsInfo?.address ?? "")
                 .font(Fonts.body1)
                 .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, Constants.horizontalPadding)
                 .padding(.bottom, 24)
-            
+
             VStack {
                 contactItem(icon: Asset.Icons.Contacts.phone.swiftUIImage,
                             text: viewModel.contactsInfo?.phone)
-                .onTapGesture {
-                    guard let call = viewModel.callURL else { return }
-                    openURL(call)
-                }
-                
+                    .onTapGesture {
+                        guard let call = viewModel.callURL else { return }
+                        openURL(call)
+                    }
+
                 contactItem(icon: Asset.Icons.Contacts.fax.swiftUIImage,
                             text: viewModel.contactsInfo?.fax)
-                .onTapGesture {
-                    guard let call = viewModel.faxURL else { return }
-                    openURL(call)
-                }
-                
+                    .onTapGesture {
+                        guard let call = viewModel.faxURL else { return }
+                        openURL(call)
+                    }
+
                 contactItem(icon: Asset.Icons.Contacts.email.swiftUIImage,
                             text: viewModel.contactsInfo?.email)
-                .onTapGesture {
-                    guard let email = viewModel.mailURL else { return }
-                    openURL(email)
-                }
+                    .onTapGesture {
+                        guard let email = viewModel.mailURL else { return }
+                        openURL(email)
+                    }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, Constants.horizontalPadding)
             .padding(.bottom, 24)
-            
+
             HStack(spacing: 16) {
                 Text(L10n.Contacts.followUs)
                     .font(Fonts.body1)
                     .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
-                
+
                 HStack(spacing: 16) {
                     Asset.Icons.Contacts.facebook.swiftUIImage
                         .onTapGesture {
@@ -74,7 +74,7 @@ struct ContactsView: View {
                                   let url = URL(string: facebook) else { return }
                             openURL(url)
                         }
-                    
+
                     Asset.Icons.Contacts.instagram.swiftUIImage
                         .onTapGesture {
                             guard let instagram = viewModel.contactsInfo?.instagram,
@@ -85,9 +85,9 @@ struct ContactsView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, Constants.horizontalPadding)
-            
+
             Spacer()
-            
+
             DevelopedByView()
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal, Constants.horizontalPadding)
@@ -102,7 +102,7 @@ struct ContactsView: View {
             viewModel.onRefresh()
         }
     }
-    
+
     init(viewModel: ContactsViewModel) {
         self.viewModel = viewModel
     }
@@ -112,7 +112,7 @@ private extension ContactsView {
     func contactItem(icon: Image, text: String?) -> some View {
         HStack(spacing: 16) {
             icon
-            
+
             Text(text ?? "")
                 .font(Fonts.body1)
                 .foregroundColor(Asset.Colors.accents.swiftUIColor)

@@ -8,7 +8,7 @@ public struct ContactOutputModel: Codable {
     public let email: String
     public let facebook: String
     public let instagram: String
-    
+
     enum CodingKeys: String, CodingKey {
         case name
         case address

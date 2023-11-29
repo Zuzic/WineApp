@@ -10,6 +10,6 @@ private struct TabbarStyleModifier: ViewModifier {
 
 extension View {
     func applyTabbarStyle() -> some View {
-        self.modifier(TabbarStyleModifier())
+        modifier(TabbarStyleModifier())
     }
 }
