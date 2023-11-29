@@ -66,6 +66,7 @@ public enum Asset {
       public static let catalog = ImageAsset(name: "tabbar/catalog")
       public static let contatcs = ImageAsset(name: "tabbar/contatcs")
       public static let myWines = ImageAsset(name: "tabbar/my.wines")
+      public static let shops = ImageAsset(name: "tabbar/shops")
     }
   }
 }

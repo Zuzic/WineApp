@@ -6,6 +6,7 @@ enum AppTabs {
     case home
     case catalog
     case contact
+    case shop
 }
 
 enum AppMode {
@@ -20,6 +21,7 @@ protocol AppEnterViewModelInjection {
     var homeViewModelInjection: HomeViewModelInjection { get }
     var catalogViewModelInjection: CatalogViewModelInjection { get }
     var contactsViewModelInjection: ContactsViewModelInjection { get }
+    var shopViewModelInjection: ShopViewModelInjection { get }
 }
 
 final class AppEnterViewModel: ObservableObject {
@@ -29,12 +31,14 @@ final class AppEnterViewModel: ObservableObject {
     let homeViewModel: HomeViewModel
     let catalogViewModel: CatalogViewModel
     let contactsViewModel: ContactsViewModel
+    let shopViewModel: ShopViewModel
 
     init(injection: AppEnterViewModelInjection) {
         self.injection = injection
         self.homeViewModel = .init(injection: injection.homeViewModelInjection)
         self.catalogViewModel = .init(injection: injection.catalogViewModelInjection)
         self.contactsViewModel = .init(injection: injection.contactsViewModelInjection)
+        self.shopViewModel = .init(injection: injection.shopViewModelInjection)
     }
 
     func onAppear() {

@@ -23,7 +23,7 @@ final class Injector {
 }
 
 // sourcery:inline:Injector.UnwrapModuleOutputs
-// swiftlint: disable: identifier_name
+// swiftlint:disable:next identifier_name
 extension Injector {
     // MARK: - ClientModuleOutput
 
@@ -32,5 +32,6 @@ extension Injector {
     var clientModuleOutputContactRepository: CantinaClient.ContactRepository { clientModuleOutput.contactRepository }
     var clientModuleOutputInitialRepository: CantinaClient.InitialRepository { clientModuleOutput.initialRepository }
     var clientModuleOutputWineStatusRepository: CantinaClient.WineStatusRepository { clientModuleOutput.wineStatusRepository }
+    var clientModuleOutputShopRepository: CantinaClient.ShopRepository { clientModuleOutput.shopRepository }
 }
 // sourcery:end

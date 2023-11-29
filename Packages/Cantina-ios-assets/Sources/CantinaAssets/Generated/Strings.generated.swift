@@ -70,6 +70,8 @@ public enum L10n {
     public static let contacts = L10n.tr("Localizable", "tab.contacts", fallback: "Contacts")
     /// Home
     public static let home = L10n.tr("Localizable", "tab.home", fallback: "Home")
+    /// Shop Offline
+    public static let shop = L10n.tr("Localizable", "tab.shop", fallback: "Shop Offline")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

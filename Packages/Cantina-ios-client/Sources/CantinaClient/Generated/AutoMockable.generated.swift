@@ -249,6 +249,34 @@ public class InitialRepositoryMock: InitialRepository {
     }
 
 }
+public class ShopRepositoryMock: ShopRepository {
+
+    public init() {}
+
+
+    //MARK: - loadShopAddresses
+
+    public var loadShopAddressesThrowableError: Error?
+    public var loadShopAddressesCallsCount = 0
+    public var loadShopAddressesCalled: Bool {
+        return loadShopAddressesCallsCount > 0
+    }
+    public var loadShopAddressesReturnValue: [AddressOutputModel]!
+    public var loadShopAddressesClosure: (() async throws -> [AddressOutputModel])?
+
+    public func loadShopAddresses() async throws -> [AddressOutputModel] {
+        if let error = loadShopAddressesThrowableError {
+            throw error
+        }
+        loadShopAddressesCallsCount += 1
+        if let loadShopAddressesClosure = loadShopAddressesClosure {
+            return try await loadShopAddressesClosure()
+        } else {
+            return loadShopAddressesReturnValue
+        }
+    }
+
+}
 public class WineStatusRepositoryMock: WineStatusRepository {
 
     public init() {}

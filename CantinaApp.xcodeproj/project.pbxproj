@@ -26,6 +26,8 @@
 		116E449729995D2900ACB318 /* NavigationVisibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449629995D2900ACB318 /* NavigationVisibilityKey.swift */; };
 		116E449A29995EEA00ACB318 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449929995EEA00ACB318 /* NavigationBarModifier.swift */; };
 		116E449C2999603700ACB318 /* TabbarStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449B2999603700ACB318 /* TabbarStyleModifier.swift */; };
+		1170910A2B1781D900FF3306 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117091092B1781D900FF3306 /* ShopView.swift */; };
+		1170910C2B1781E700FF3306 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170910B2B1781E700FF3306 /* ShopViewModel.swift */; };
 		11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ABF37329912E89000C8168 /* CantinaAppApp.swift */; };
 		11ABF37C29912E8A000C8168 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */; };
 		11BB8350299D491B004ED310 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB834F299D491B004ED310 /* SplashView.swift */; };
@@ -58,6 +60,8 @@
 		116E449629995D2900ACB318 /* NavigationVisibilityKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVisibilityKey.swift; sourceTree = "<group>"; };
 		116E449929995EEA00ACB318 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		116E449B2999603700ACB318 /* TabbarStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarStyleModifier.swift; sourceTree = "<group>"; };
+		117091092B1781D900FF3306 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		1170910B2B1781E700FF3306 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		11ABF37029912E89000C8168 /* CantinaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CantinaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ABF37329912E89000C8168 /* CantinaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantinaAppApp.swift; sourceTree = "<group>"; };
 		11ABF37929912E8A000C8168 /* CantinaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CantinaApp.entitlements; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		112A8F67299571E900B15BB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				117091082B1781C900FF3306 /* Shop */,
 				11BB8353299D5319004ED310 /* App */,
 				11BB834E299D4909004ED310 /* Splash */,
 				116E44922999297400ACB318 /* WineDetails */,
@@ -193,6 +198,14 @@
 				116E449B2999603700ACB318 /* TabbarStyleModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		117091082B1781C900FF3306 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				117091092B1781D900FF3306 /* ShopView.swift */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		11ABF36729912E89000C8168 = {
@@ -274,6 +287,7 @@
 				116E44892999090D00ACB318 /* ContactsViewModel.swift */,
 				116E448B2999093B00ACB318 /* HomeViewModel.swift */,
 				111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */,
+				1170910B2B1781E700FF3306 /* ShopViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,6 +401,7 @@
 				116E449A29995EEA00ACB318 /* NavigationBarModifier.swift in Sources */,
 				11BF3A282997D74A0017BE45 /* CatalogView.swift in Sources */,
 				11D05D6829B12D6000585D5D /* FilterTagView.swift in Sources */,
+				1170910A2B1781D900FF3306 /* ShopView.swift in Sources */,
 				116E449729995D2900ACB318 /* NavigationVisibilityKey.swift in Sources */,
 				11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */,
 				111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */,
@@ -399,6 +414,7 @@
 				116E44882999090100ACB318 /* CatalogViewModel.swift in Sources */,
 				116E448C2999093B00ACB318 /* HomeViewModel.swift in Sources */,
 				110869C829AE725A00AC445C /* DevelopedByView.swift in Sources */,
+				1170910C2B1781E700FF3306 /* ShopViewModel.swift in Sources */,
 				112A8F69299571E900B15BB5 /* Logger.swift in Sources */,
 				11BF3A2A2997D7700017BE45 /* ContactsView.swift in Sources */,
 				11BB8350299D491B004ED310 /* SplashView.swift in Sources */,

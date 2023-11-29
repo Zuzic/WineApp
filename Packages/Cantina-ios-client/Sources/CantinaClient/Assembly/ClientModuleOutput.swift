@@ -7,4 +7,5 @@ public protocol ClientModuleOutput {
     var contactRepository: ContactRepository { get }
     var initialRepository: InitialRepository { get }
     var wineStatusRepository: WineStatusRepository { get }
+    var shopRepository: ShopRepository { get }
 }

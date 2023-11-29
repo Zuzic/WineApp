@@ -2,6 +2,7 @@
 "tab.home"      = "Home";
 "tab.catalog"   = "Catalog";
 "tab.contacts"  = "Contacts";
+"tab.shop"      = "Shop Offline";
 
 // MARK: - contacts
 "contacts.follow_us" = "Follow us";

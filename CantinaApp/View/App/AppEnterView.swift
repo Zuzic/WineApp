@@ -36,6 +36,7 @@ private extension AppEnterView {
         TabView {
             home
             catalog
+            shop
             contacts
         }
         .accentColor(Asset.Colors.accents.swiftUIColor)
@@ -71,6 +72,16 @@ private extension AppEnterView {
                 }
             }
     }
+
+    var shop: some View {
+        ShopView(viewModel: viewModel.shopViewModel)
+            .tabItem {
+                VStack {
+                    AppTabs.shop.title
+                    AppTabs.shop.icon
+                }
+            }
+    }
 }
 
 // MARK: -
@@ -81,6 +92,7 @@ extension AppTabs {
         case .home: return Text(L10n.Tab.home)
         case .catalog: return Text(L10n.Tab.catalog)
         case .contact: return Text(L10n.Tab.contacts)
+        case .shop: return Text(L10n.Tab.shop)
         }
     }
 
@@ -89,6 +101,7 @@ extension AppTabs {
         case .home: return Asset.Icons.Tabbar.myWines.swiftUIImage
         case .catalog: return Asset.Icons.Tabbar.catalog.swiftUIImage
         case .contact: return Asset.Icons.Tabbar.contatcs.swiftUIImage
+        case .shop: return Asset.Icons.Tabbar.shops.swiftUIImage
         }
     }
 }

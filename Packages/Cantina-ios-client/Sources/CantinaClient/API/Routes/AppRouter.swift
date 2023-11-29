@@ -3,6 +3,7 @@ import Moya
 
 enum AppRouter {
     case catalog
+    case shop
 }
 
 extension AppRouter: TargetType {
@@ -12,7 +13,7 @@ extension AppRouter: TargetType {
 
     var task: Task {
         switch self {
-        case .catalog:
+        case .catalog, .shop:
             return .requestPlain
         }
     }
@@ -28,6 +29,7 @@ extension AppRouter: TargetType {
     var path: String {
         switch self {
         case .catalog: return "/data.json"
+        case .shop: return "/shop.json"
         }
     }
 }

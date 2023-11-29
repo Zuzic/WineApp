@@ -22,7 +22,7 @@ _{{ name|lowerFirstLetter }}.initializer = { [unowned self] in {{ type.name }}(i
 
 
 // sourcery:inline:Injector.UnwrapModuleOutputs
-// swiftlint: disable: identifier_name
+// swiftlint:disable:next identifier_name
 extension Injector {
 {% for type in types.protocols where type|annotated:"ModuleOutput" %}
     // MARK: - {{ type.name }}

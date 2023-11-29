@@ -131,6 +131,28 @@ extension ClientModule {
         RestApiClientInjectionImpl(injector: self)
     }
 }
+// MARK: - ShopRepositoryInjection
+
+final class ShopRepositoryInjectionImpl: ShopRepositoryInjection {
+    private let injector: ClientModule
+    fileprivate init(injector: ClientModule) {
+        self.injector = injector
+    }
+
+    var restClient: RestApiClient {
+        injector.restClient
+    }
+
+    var storage: Storage {
+        injector.storage
+    }
+}
+
+extension ClientModule {
+    func build() -> ShopRepositoryInjection {
+        ShopRepositoryInjectionImpl(injector: self)
+    }
+}
 // MARK: - StorageInjection
 
 final class StorageInjectionImpl: StorageInjection {

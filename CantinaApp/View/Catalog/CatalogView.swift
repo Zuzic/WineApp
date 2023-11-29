@@ -79,7 +79,7 @@ struct CatalogView: View {
         .onAppear {
             viewModel.onAppear()
         }
-        .sheet(isPresented: $canShowFilter) {
+        .popover(isPresented: $canShowFilter) {
             if let filter = viewModel.filter {
                 VStack {
                     HStack {

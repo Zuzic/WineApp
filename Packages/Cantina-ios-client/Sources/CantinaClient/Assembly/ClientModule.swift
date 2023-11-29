@@ -13,6 +13,7 @@ public final class ClientModule: ClientModuleOutput {
     @LazyAtomic public private(set) var contactRepository: ContactRepository
     @LazyAtomic public private(set) var initialRepository: InitialRepository
     @LazyAtomic public private(set) var wineStatusRepository: WineStatusRepository
+    @LazyAtomic public private(set) var shopRepository: ShopRepository
 
     @LazyAtomic private(set) var restClient: RestApiClient
     @LazyAtomic private(set) var storage: Storage
@@ -26,6 +27,7 @@ public final class ClientModule: ClientModuleOutput {
         _contactRepository.initializer = { [unowned self] in ContactRepositoryImpl(injection: build()) }
         _initialRepository.initializer = { [unowned self] in InitialRepositoryImpl(injection: build()) }
         _wineStatusRepository.initializer = { [unowned self] in WineStatusRepositoryImpl(injection: build()) }
+        _shopRepository.initializer = { [unowned self] in ShopRepositoryImpl(injection: build()) }
         _storage.initializer = { [unowned self] in Storage(injection: build()) }
     }
 
@@ -35,7 +37,7 @@ public final class ClientModule: ClientModuleOutput {
 }
 
 // _sourcery:inline:ClientModule.UnwrapModuleDependency
-// swiftlint: disable: identifier_name
+// swiftlint:disable:next identifier_name
 extension ClientModule {
     var clientModuleDependencySettings: ClientModuleSettings { injection.settings }
 }

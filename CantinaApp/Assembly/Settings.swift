@@ -4,8 +4,8 @@ import CantinaClient
 // sourcery:end
 import CantinaAssets
 import CantinaCommon
-import Foundation
 import CoreData
+import Foundation
 
 final class Settings {
     let dataContainerURL: URL = NSPersistentContainer.defaultDirectoryURL()

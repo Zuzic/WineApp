@@ -4,6 +4,7 @@ import Foundation
 // sourcery: builder
 protocol HomeViewModelInjection {
     var homeRepository: HomeRepository { get }
+    var shopRepository: ShopRepository { get }
 }
 
 final class HomeViewModel: ObservableObject {
@@ -19,6 +20,8 @@ final class HomeViewModel: ObservableObject {
         Task {
             do {
                 let result = try await injection.homeRepository.homeInfo()
+                let shops = try await injection.shopRepository.loadShopAddresses()
+                debugPrint("debugPrint shops \(shops.count)")
 
                 await MainActor.run {
                     self.homeInfo = result
