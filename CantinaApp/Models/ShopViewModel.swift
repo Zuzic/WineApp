@@ -7,7 +7,7 @@ protocol ShopViewModelInjection {
 }
 
 final class ShopViewModel: ObservableObject {
-    @Published var addresses: [AddressOutputModel] = []
+    @Published var addresses: [CountryOutputModel] = []
 
     private let injection: ShopViewModelInjection
 

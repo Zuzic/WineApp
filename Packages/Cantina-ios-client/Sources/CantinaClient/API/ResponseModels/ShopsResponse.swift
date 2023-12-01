@@ -1,14 +1,14 @@
 import Foundation
 
 struct ShopsResponse: Codable {
-    let addresses: [AddressOutputModel]
+    let shops: [ShopOutputModel]
 
     enum CodingKeys: String, CodingKey {
-        case addresses
+        case shops = "addresses"
     }
 
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.addresses = try values.decode([AddressOutputModel].self, forKey: .addresses)
+        self.shops = try values.decode([ShopOutputModel].self, forKey: .shops)
     }
 }

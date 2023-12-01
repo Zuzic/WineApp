@@ -261,10 +261,10 @@ public class ShopRepositoryMock: ShopRepository {
     public var loadShopAddressesCalled: Bool {
         return loadShopAddressesCallsCount > 0
     }
-    public var loadShopAddressesReturnValue: [AddressOutputModel]!
-    public var loadShopAddressesClosure: (() async throws -> [AddressOutputModel])?
+    public var loadShopAddressesReturnValue: [CountryOutputModel]!
+    public var loadShopAddressesClosure: (() async throws -> [CountryOutputModel])?
 
-    public func loadShopAddresses() async throws -> [AddressOutputModel] {
+    public func loadShopAddresses() async throws -> [CountryOutputModel] {
         if let error = loadShopAddressesThrowableError {
             throw error
         }

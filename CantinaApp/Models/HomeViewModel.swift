@@ -20,8 +20,6 @@ final class HomeViewModel: ObservableObject {
         Task {
             do {
                 let result = try await injection.homeRepository.homeInfo()
-                let shops = try await injection.shopRepository.loadShopAddresses()
-                debugPrint("debugPrint shops \(shops.count)")
 
                 await MainActor.run {
                     self.homeInfo = result
