@@ -11,11 +11,11 @@ protocol ShopRepositoryInjection {
 
 final class ShopRepositoryImpl: ShopRepository {
     private let injection: ShopRepositoryInjection
-    
+
     init(injection: ShopRepositoryInjection) {
         self.injection = injection
     }
-    
+
     func loadShopAddresses() async throws -> [CountryOutputModel] {
         let result: ShopsResponse = try await injection.restClient.asyncPerform(route: .appRouter(.shop))
         var countries: [CountryOutputModel] = []

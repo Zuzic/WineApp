@@ -4,7 +4,7 @@ struct ShopsResponse: Codable {
     let shops: [ShopOutputModel]
 
     enum CodingKeys: String, CodingKey {
-        case shops = "addresses"
+        case shops
     }
 
     public init(from decoder: Decoder) throws {

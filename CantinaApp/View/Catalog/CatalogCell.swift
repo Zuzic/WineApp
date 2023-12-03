@@ -29,24 +29,24 @@ struct CatalogCell: View {
             VStack(spacing: 8) {
                 Text(wine.name)
                     .font(Fonts.header3)
-                    .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 if let subname = wine.subname {
                     Text(subname)
                         .font(Fonts.body1)
-                        .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
 
                 Text("\(wine.region) \n\(wine.brand)")
                     .font(Fonts.caption1)
-                    .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.elementsSecondary.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 Text(L10n.Catalog.Item.status(wine.status.uppercased()))
                     .font(Fonts.body1)
-                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 HStack {
@@ -54,7 +54,7 @@ struct CatalogCell: View {
 
                     Text(wine.grape.capitalized)
                         .font(Fonts.body1)
-                        .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -63,7 +63,7 @@ struct CatalogCell: View {
 
                     Text(wine.sweetness.capitalized)
                         .font(Fonts.body1)
-                        .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }

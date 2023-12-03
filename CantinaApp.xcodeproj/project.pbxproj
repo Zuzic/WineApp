@@ -28,6 +28,10 @@
 		116E449C2999603700ACB318 /* TabbarStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E449B2999603700ACB318 /* TabbarStyleModifier.swift */; };
 		1170910A2B1781D900FF3306 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117091092B1781D900FF3306 /* ShopView.swift */; };
 		1170910C2B1781E700FF3306 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170910B2B1781E700FF3306 /* ShopViewModel.swift */; };
+		11891AAD2B1CA7050043DC64 /* ShopFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11891AAC2B1CA7050043DC64 /* ShopFilterView.swift */; };
+		11891AAF2B1CB8CE0043DC64 /* ShopFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11891AAE2B1CB8CE0043DC64 /* ShopFilterViewModel.swift */; };
+		11891AB22B1CCC060043DC64 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11891AB12B1CCC060043DC64 /* Array+Extensions.swift */; };
+		11891AB42B1CCE630043DC64 /* ShopFilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11891AB32B1CCE630043DC64 /* ShopFilterTagView.swift */; };
 		11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ABF37329912E89000C8168 /* CantinaAppApp.swift */; };
 		11ABF37C29912E8A000C8168 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11ABF37B29912E8A000C8168 /* Preview Assets.xcassets */; };
 		11BB8350299D491B004ED310 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB834F299D491B004ED310 /* SplashView.swift */; };
@@ -62,6 +66,10 @@
 		116E449B2999603700ACB318 /* TabbarStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarStyleModifier.swift; sourceTree = "<group>"; };
 		117091092B1781D900FF3306 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		1170910B2B1781E700FF3306 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		11891AAC2B1CA7050043DC64 /* ShopFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopFilterView.swift; sourceTree = "<group>"; };
+		11891AAE2B1CB8CE0043DC64 /* ShopFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopFilterViewModel.swift; sourceTree = "<group>"; };
+		11891AB12B1CCC060043DC64 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		11891AB32B1CCE630043DC64 /* ShopFilterTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopFilterTagView.swift; sourceTree = "<group>"; };
 		11ABF37029912E89000C8168 /* CantinaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CantinaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ABF37329912E89000C8168 /* CantinaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantinaAppApp.swift; sourceTree = "<group>"; };
 		11ABF37929912E8A000C8168 /* CantinaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CantinaApp.entitlements; sourceTree = "<group>"; };
@@ -204,8 +212,18 @@
 			isa = PBXGroup;
 			children = (
 				117091092B1781D900FF3306 /* ShopView.swift */,
+				11891AAC2B1CA7050043DC64 /* ShopFilterView.swift */,
+				11891AB32B1CCE630043DC64 /* ShopFilterTagView.swift */,
 			);
 			path = Shop;
+			sourceTree = "<group>";
+		};
+		11891AB02B1CCBF20043DC64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				11891AB12B1CCC060043DC64 /* Array+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		11ABF36729912E89000C8168 = {
@@ -229,6 +247,7 @@
 		11ABF37229912E89000C8168 /* CantinaApp */ = {
 			isa = PBXGroup;
 			children = (
+				11891AB02B1CCBF20043DC64 /* Extensions */,
 				110869C629AE724700AC445C /* UI Components */,
 				116E449829995ECB00ACB318 /* Modifiers */,
 				116E449529995D2000ACB318 /* EnvironmentKey */,
@@ -288,6 +307,7 @@
 				116E448B2999093B00ACB318 /* HomeViewModel.swift */,
 				111D4A5629A0F4AD00FE3303 /* WineDetailsViewModel.swift */,
 				1170910B2B1781E700FF3306 /* ShopViewModel.swift */,
+				11891AAE2B1CB8CE0043DC64 /* ShopFilterViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -399,9 +419,12 @@
 				112A8F6C299571E900B15BB5 /* Injector.swift in Sources */,
 				116E449C2999603700ACB318 /* TabbarStyleModifier.swift in Sources */,
 				116E449A29995EEA00ACB318 /* NavigationBarModifier.swift in Sources */,
+				11891AAF2B1CB8CE0043DC64 /* ShopFilterViewModel.swift in Sources */,
 				11BF3A282997D74A0017BE45 /* CatalogView.swift in Sources */,
 				11D05D6829B12D6000585D5D /* FilterTagView.swift in Sources */,
+				11891AAD2B1CA7050043DC64 /* ShopFilterView.swift in Sources */,
 				1170910A2B1781D900FF3306 /* ShopView.swift in Sources */,
+				11891AB22B1CCC060043DC64 /* Array+Extensions.swift in Sources */,
 				116E449729995D2900ACB318 /* NavigationVisibilityKey.swift in Sources */,
 				11ABF37429912E89000C8168 /* CantinaAppApp.swift in Sources */,
 				111D4A5729A0F4AD00FE3303 /* WineDetailsViewModel.swift in Sources */,
@@ -415,6 +438,7 @@
 				116E448C2999093B00ACB318 /* HomeViewModel.swift in Sources */,
 				110869C829AE725A00AC445C /* DevelopedByView.swift in Sources */,
 				1170910C2B1781E700FF3306 /* ShopViewModel.swift in Sources */,
+				11891AB42B1CCE630043DC64 /* ShopFilterTagView.swift in Sources */,
 				112A8F69299571E900B15BB5 /* Logger.swift in Sources */,
 				11BF3A2A2997D7700017BE45 /* ContactsView.swift in Sources */,
 				11BB8350299D491B004ED310 /* SplashView.swift in Sources */,

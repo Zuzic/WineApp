@@ -15,6 +15,8 @@ import CantinaClient
 import Foundation
 import CantinaClient
 import Foundation
+import CantinaClient
+import Foundation
 
 
 // MARK: - AppEnterViewModelInjection
@@ -113,6 +115,20 @@ extension Injector {
         HomeViewModelInjectionImpl(injector: self)
     }
 }
+// MARK: - ShopFilterViewModelInjection
+
+final class ShopFilterViewModelInjectionImpl: ShopFilterViewModelInjection {
+    private let injector: Injector
+    fileprivate init(injector: Injector) {
+        self.injector = injector
+    }
+}
+
+extension Injector {
+    func build() -> ShopFilterViewModelInjection {
+        ShopFilterViewModelInjectionImpl(injector: self)
+    }
+}
 // MARK: - ShopViewModelInjection
 
 final class ShopViewModelInjectionImpl: ShopViewModelInjection {
@@ -123,6 +139,10 @@ final class ShopViewModelInjectionImpl: ShopViewModelInjection {
 
     var shopRepository: ShopRepository {
         injector.clientModuleOutputShopRepository
+    }
+
+    var shopFilterViewModelInjection: ShopFilterViewModelInjection {
+        ShopFilterViewModelInjectionImpl(injector: injector)
     }
 }
 

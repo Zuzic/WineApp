@@ -3,9 +3,8 @@ import CantinaClient
 import SFSafeSymbols
 import SwiftUI
 
-struct FilterTagView: View {
-    private let tags: [WineFilterItemOutputModel]
-    private let action: (WineFilterItemOutputModel) -> Void
+struct ShopFilterTagView: View {
+    @ObservedObject private var viewModel: ShopFilterViewModel
 
     @State private var totalHeight = CGFloat.infinity
 
@@ -18,40 +17,39 @@ struct FilterTagView: View {
         .frame(maxHeight: totalHeight)
     }
 
-    init(tags: [WineFilterItemOutputModel], action: @escaping (WineFilterItemOutputModel) -> Void) {
-        self.tags = tags
-        self.action = action
+    init(viewModel: ShopFilterViewModel) {
+        self.viewModel = viewModel
     }
 
-    private func generateContent(in g: GeometryProxy) -> some View {
+    private func generateContent(in _: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
 
         return ZStack(alignment: .topLeading) {
-            ForEach(self.tags, id: \.id) { tag in
-                self.itemView(for: tag)
-                    .padding([.horizontal, .vertical], 4)
-                    .alignmentGuide(.leading, computeValue: { d in
-                        if abs(width - d.width) > g.size.width {
-                            width = 0
-                            height -= d.height
-                        }
-                        let result = width
-                        if tag.id == self.tags.last!.id {
-                            width = 0
-                        } else {
-                            width -= d.width
-                        }
-                        return result
-                    })
-                    .alignmentGuide(.top, computeValue: { _ in
-                        let result = height
-                        if tag.id == self.tags.last!.id {
-                            height = 0
-                        }
-                        return result
-                    })
-            }
+//            ForEach(self.tags, id: \.id) { tag in
+//                self.itemView(for: tag)
+//                    .padding([.horizontal, .vertical], 4)
+//                    .alignmentGuide(.leading, computeValue: { d in
+//                        if abs(width - d.width) > g.size.width {
+//                            width = 0
+//                            height -= d.height
+//                        }
+//                        let result = width
+//                        if tag.id == self.tags.last!.id {
+//                            width = 0
+//                        } else {
+//                            width -= d.width
+//                        }
+//                        return result
+//                    })
+//                    .alignmentGuide(.top, computeValue: { _ in
+//                        let result = height
+//                        if tag.id == self.tags.last!.id {
+//                            height = 0
+//                        }
+//                        return result
+//                    })
+//            }
         }.background(viewHeightReader($totalHeight))
     }
 
@@ -72,7 +70,7 @@ struct FilterTagView: View {
                 .fill(Asset.Colors.accents.swiftUIColor)
         )
         .onTapGesture {
-            action(item)
+//            action(item)
         }
     }
 

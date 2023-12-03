@@ -1,36 +1,45 @@
 import CantinaAssets
+import CantinaClient
+import SFSafeSymbols
 import SwiftUI
 
 struct ShopView: View {
     @ObservedObject private var viewModel: ShopViewModel
     @State private var canShowFilter: Bool = false
-    @State private var filterHeight: CGFloat = 100
-    
+
     init(viewModel: ShopViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: [.init()]) {
-                        ForEach(viewModel.addresses, id:\.countryCode) { country in
-                            Text(country.countryCode)
+                        ForEach(viewModel.filters, id: \.countryName) { filter in
+                            Text(filter.countryName)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.horizontal)
                                 .font(Fonts.header2)
                                 .foregroundStyle(Asset.Colors.textSecondary.swiftUIColor)
-                            
-                            LazyVGrid(columns:  [.init()]) {
-                                ForEach(country.cities, id:\.id) { city in
-                                    Text(city.name)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .font(Fonts.body1)
-                                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+
+                            if filter.cities.count > 1 {
+                                LazyVGrid(columns: [.init()]) {
+                                    ForEach(filter.cities, id: \.id) { city in
+                                        Text(city.name)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .font(Fonts.body1)
+                                            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                            .onTapGesture {
+                                                viewModel.onSelect(city: city)
+                                            }
+                                    }
                                 }
+                                .padding(.horizontal)
+                            } else if let city = filter.cities.first {
+                                shopAddresses(at: city)
+                                    .padding(.horizontal)
                             }
-                            .padding(.horizontal)
                         }
                     }
                     .padding(.top, 20)
@@ -41,14 +50,14 @@ struct ShopView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Asset.Icons.logo.swiftUIImage
                 }
-                
+
                 ToolbarItem(placement: .principal) {
                     Text(L10n.Tab.shop)
                         .font(Fonts.header3)
-                        .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
+
                 ToolbarItem(placement: .navigationBarTrailing) {
                     filterNavbarIcon
                 }
@@ -59,9 +68,24 @@ struct ShopView: View {
             }
             .popover(isPresented: $canShowFilter) {
                 VStack {
-                    Text("Filter is shown")
+                    HStack {
+                        Spacer()
+
+                        Button {
+                            canShowFilter.toggle()
+                        } label: {
+                            Label("", systemSymbol: .xmark)
+                                .frame(width: 32, height: 32)
+                                .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
+                        }
+                        .padding(.horizontal)
+                    }
+                    .padding(.top, 32)
+                    .frame(height: 32)
+
+                    ShopFilterView(viewModel: viewModel.shopFilterViewModel)
                 }
-                .presentationDetents([.height(self.filterHeight)])
+                .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
             }
         }
@@ -72,21 +96,50 @@ struct ShopView: View {
     }
 }
 
+// MARK: -
+
 private extension ShopView {
-    private var filterNavbarIcon: some View {
+    var filterNavbarIcon: some View {
         HStack(spacing: 2) {
             Asset.Icons.filter.swiftUIImage
-            
-            //            if viewModel.allFilterItems.count > 0 {
-            //                Text("\(viewModel.allFilterItems.count)")
-            //                    .frame(width: 20, height: 20)
-            //                    .foregroundColor(Asset.Colors.surface.swiftUIColor)
-            //                    .font(Fonts.body1)
-            //                    .background(Circle().fill(.black))
-            //            }
+
+            if viewModel.filters.count == 1 {
+                Text("1")
+                    .frame(width: 20, height: 20)
+                    .foregroundStyle(Asset.Colors.surface.swiftUIColor)
+                    .font(Fonts.body1)
+                    .background(Circle().fill(.black))
+            }
         }
         .onTapGesture {
             canShowFilter.toggle()
+        }
+    }
+
+    func shopAddresses(at city: CityOutputModel) -> some View {
+        LazyVGrid(columns: [.init()]) {
+            ForEach(city.addresses, id: \.companyName) { address in
+                VStack {
+                    Divider()
+
+                    Text(address.companyName)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(Fonts.body1)
+                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+
+                    Text(address.address)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(Fonts.body1)
+                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+
+                    if let zip = address.zip {
+                        Text(zip)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(Fonts.body1)
+                            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    }
+                }
+            }
         }
     }
 }

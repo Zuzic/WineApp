@@ -55,6 +55,16 @@ public enum L10n {
       public static let type = L10n.tr("Localizable", "filter.section.type", fallback: "Type")
     }
   }
+  public enum Shop {
+    public enum Filter {
+      /// City
+      public static let city = L10n.tr("Localizable", "shop.filter.city", fallback: "City")
+      /// Country
+      public static let country = L10n.tr("Localizable", "shop.filter.country", fallback: "Country")
+      /// State
+      public static let state = L10n.tr("Localizable", "shop.filter.state", fallback: "State")
+    }
+  }
   public enum Splash {
     /// Learn more about our story full of passion for wine and for Italy land
     public static let desc = L10n.tr("Localizable", "splash.desc", fallback: "Learn more about our story full of passion for wine and for Italy land")

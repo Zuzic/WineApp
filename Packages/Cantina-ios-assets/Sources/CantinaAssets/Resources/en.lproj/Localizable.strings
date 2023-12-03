@@ -30,3 +30,8 @@
 "developed.owner" = "CA Technologies S.R.L.";
 "developed.flag" = "🇪🇺";
 "developed.campaing" = "CAMPAIGN FINANCED ACCORDING TO EC REGULATION No.1308/13";
+
+// MARK: - shop
+"shop.filter.country" = "Country";
+"shop.filter.state" = "State";
+"shop.filter.city" = "City";

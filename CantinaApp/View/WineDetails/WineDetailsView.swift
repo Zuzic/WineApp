@@ -39,24 +39,24 @@ struct WineDetailsView: View {
                     VStack(spacing: 4) {
                         Text(viewModel.wine.name)
                             .font(Fonts.header3)
-                            .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                            .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         if let subname = viewModel.wine.subname {
                             Text(subname)
                                 .font(Fonts.body1)
-                                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
 
                         Text("\(viewModel.wine.region) \n\(viewModel.wine.brand)")
                             .font(Fonts.caption1)
-                            .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
+                            .foregroundStyle(Asset.Colors.elementsSecondary.swiftUIColor)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         Text(L10n.Catalog.Item.status(viewModel.wine.status.uppercased()))
                             .font(Fonts.body1)
-                            .foregroundColor(Asset.Colors.accents.swiftUIColor)
+                            .foregroundStyle(Asset.Colors.accents.swiftUIColor)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .underline()
                             .onTapGesture {
@@ -68,7 +68,7 @@ struct WineDetailsView: View {
 
                             Text(viewModel.wine.grape.capitalized)
                                 .font(Fonts.body1)
-                                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -77,7 +77,7 @@ struct WineDetailsView: View {
 
                             Text(viewModel.wine.sweetness.capitalized)
                                 .font(Fonts.body1)
-                                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -86,12 +86,12 @@ struct WineDetailsView: View {
 
                 ForEach(viewModel.wine.desc, id: \.title) { item in
                     Text(item.title)
-                        .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                         .font(Fonts.header3)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     Text(item.value)
-                        .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                         .font(Fonts.body1)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 16)
@@ -136,13 +136,13 @@ private struct WineStatusDescriptionView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             Text(L10n.Docg.title)
-                .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                 .font(Fonts.header3)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, 24)
 
             Text(description)
-                .foregroundColor(Asset.Colors.textSecondary.swiftUIColor)
+                .foregroundStyle(Asset.Colors.textSecondary.swiftUIColor)
                 .font(Fonts.body1)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }

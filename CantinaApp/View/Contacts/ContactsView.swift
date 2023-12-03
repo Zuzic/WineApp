@@ -22,7 +22,7 @@ struct ContactsView: View {
 
             Text(viewModel.contactsInfo?.name ?? "")
                 .font(Fonts.header3)
-                .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, Constants.horizontalPadding)
                 .padding(.top, 16)
@@ -31,7 +31,7 @@ struct ContactsView: View {
 
             Text(viewModel.contactsInfo?.address ?? "")
                 .font(Fonts.body1)
-                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, Constants.horizontalPadding)
                 .padding(.bottom, 24)
@@ -65,7 +65,7 @@ struct ContactsView: View {
             HStack(spacing: 16) {
                 Text(L10n.Contacts.followUs)
                     .font(Fonts.body1)
-                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
 
                 HStack(spacing: 16) {
                     Asset.Icons.Contacts.facebook.swiftUIImage
@@ -115,7 +115,7 @@ private extension ContactsView {
 
             Text(text ?? "")
                 .font(Fonts.body1)
-                .foregroundColor(Asset.Colors.accents.swiftUIColor)
+                .foregroundStyle(Asset.Colors.accents.swiftUIColor)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

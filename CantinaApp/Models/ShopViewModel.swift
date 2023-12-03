@@ -4,15 +4,20 @@ import Foundation
 // sourcery: builder
 protocol ShopViewModelInjection {
     var shopRepository: ShopRepository { get }
+
+    var shopFilterViewModelInjection: ShopFilterViewModelInjection { get }
 }
 
 final class ShopViewModel: ObservableObject {
-    @Published var addresses: [CountryOutputModel] = []
+    @Published private(set) var filters: [ShopFilterModel] = []
 
+    @Published private(set) var shopFilterViewModel: ShopFilterViewModel!
     private let injection: ShopViewModelInjection
 
     init(injection: ShopViewModelInjection) {
         self.injection = injection
+        self.shopFilterViewModel = .init(injection: injection.shopFilterViewModelInjection,
+                                         delegate: self)
     }
 
     func onAppear() {
@@ -21,7 +26,8 @@ final class ShopViewModel: ObservableObject {
                 let result = try await injection.shopRepository.loadShopAddresses()
 
                 await MainActor.run {
-                    self.addresses = result
+                    self.filters = result.shopFilters()
+                    self.shopFilterViewModel.update(countries: result)
                 }
             } catch {
                 debugPrint("Error \(error)")
@@ -29,5 +35,19 @@ final class ShopViewModel: ObservableObject {
         }
     }
 
+    func onSelect(city: CityOutputModel) {
+        shopFilterViewModel.select(city: city)
+    }
+
     func onRefresh() {}
+}
+
+extension ShopViewModel: ShopFilterViewModelDelegate {
+    func didSelect(filter: ShopFilterModel) {
+        filters = [filter]
+    }
+
+    func didReset(filters: [ShopFilterModel]) {
+        self.filters = filters
+    }
 }

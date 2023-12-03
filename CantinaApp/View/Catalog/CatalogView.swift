@@ -44,7 +44,7 @@ struct CatalogView: View {
                            !viewModel.rootCatalog.isEmpty
                         {
                             Text(L10n.Catalog.placeholder)
-                                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                                 .font(Fonts.body1)
                                 .multilineTextAlignment(.center)
                         }
@@ -61,7 +61,7 @@ struct CatalogView: View {
                 ToolbarItem(placement: .principal) {
                     Text(L10n.Tab.catalog)
                         .font(Fonts.header3)
-                        .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                        .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
 
@@ -84,7 +84,7 @@ struct CatalogView: View {
                 VStack {
                     HStack {
                         Text(L10n.Filter.Header.title)
-                            .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                             .font(Fonts.body1)
 
                         Spacer()
@@ -94,7 +94,7 @@ struct CatalogView: View {
                                 viewModel.resetFilter()
                             } label: {
                                 Text(L10n.Filter.Header.clear)
-                                    .foregroundColor(Asset.Colors.accents.swiftUIColor)
+                                    .foregroundStyle(Asset.Colors.accents.swiftUIColor)
                                     .font(Fonts.body1)
                             }
                         }
@@ -111,7 +111,7 @@ struct CatalogView: View {
 
                                 Text(item.title)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                                    .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                                     .font(Fonts.header3)
 
                                 ForEach(item.items) { filterItem in
@@ -127,7 +127,7 @@ struct CatalogView: View {
                                         }
 
                                         Text(filterItem.title.capitalized)
-                                            .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                                            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                                             .font(Fonts.body1)
 
                                         Spacer()
@@ -144,11 +144,13 @@ struct CatalogView: View {
                             }
                         }
                         .padding(.horizontal, 32)
-                        .background(GeometryReader { proxy in
-                            Color.clear.onAppear {
-                                self.filterHeight = proxy.size.height + 70
+                        .background {
+                            GeometryReader { proxy in
+                                Color.clear.onAppear {
+                                    self.filterHeight = proxy.size.height + 70
+                                }
                             }
-                        })
+                        }
                     }
                 }
                 .presentationDetents([.height(self.filterHeight)])
@@ -168,7 +170,7 @@ struct CatalogView: View {
             if viewModel.allFilterItems.count > 0 {
                 Text("\(viewModel.allFilterItems.count)")
                     .frame(width: 20, height: 20)
-                    .foregroundColor(Asset.Colors.surface.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.surface.swiftUIColor)
                     .font(Fonts.body1)
                     .background(Circle().fill(.black))
             }

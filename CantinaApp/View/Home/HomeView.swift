@@ -17,14 +17,14 @@ struct HomeView: View {
 
                 Text(viewModel.homeInfo?.title ?? "")
                     .font(Fonts.header3)
-                    .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 32)
                     .padding(.vertical)
 
                 Text(viewModel.homeInfo?.desc ?? "")
                     .font(Fonts.body1)
-                    .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, 32)
                     .multilineTextAlignment(.leading)

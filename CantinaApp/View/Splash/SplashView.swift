@@ -23,11 +23,11 @@ struct SplashView: View {
 
             Text(L10n.Splash.title)
                 .font(Fonts.header1)
-                .foregroundColor(Asset.Colors.textHeader.swiftUIColor)
+                .foregroundStyle(Asset.Colors.textHeader.swiftUIColor)
 
             Text(L10n.Splash.desc)
                 .font(Fonts.header2)
-                .foregroundColor(Asset.Colors.textBodyPrimary.swiftUIColor)
+                .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)
                 .layoutPriority(1)
@@ -41,7 +41,7 @@ struct SplashView: View {
 
                 Text(L10n.Splash.progress)
                     .font(Fonts.caption1)
-                    .foregroundColor(Asset.Colors.elementsSecondary.swiftUIColor)
+                    .foregroundStyle(Asset.Colors.elementsSecondary.swiftUIColor)
             }
             .padding(.top, 20)
 
