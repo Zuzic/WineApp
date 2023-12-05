@@ -6,7 +6,11 @@ public final class CountryOutputModel {
     let countryCode: String
     public private(set) var states: [StateOutputModel] = []
     public var name: String {
-        return Locale.countryCode(from: countryCode)
+        return Locale.countryName(atCode: countryCode)
+    }
+
+    public var nameAndFlag: String {
+        return Locale.countryNameAndFlag(atCode: countryCode)
     }
 
     public var cities: [CityOutputModel] {
@@ -34,13 +38,27 @@ public final class CountryOutputModel {
 
 // MARK: - StateOutputModel
 
-public final class StateOutputModel {
-    public private(set) var state: String
+public enum StateType: Equatable {
+    case state(String)
+    case other
+}
+
+public final class StateOutputModel: Identifiable {
+    public let id: String = UUID().uuidString
+    public private(set) var type: StateType = .other
     public private(set) var cities: [CityOutputModel] = []
     public private(set) weak var country: CountryOutputModel?
+    public var state: String {
+        switch type {
+        case .state(let string): return string
+        case .other: return "other"
+        }
+    }
 
     init(shop: ShopOutputModel, country: CountryOutputModel) {
-        self.state = shop.state
+        if let state = shop.state {
+            self.type = .state(state)
+        }
         self.country = country
         add(shop: shop)
     }

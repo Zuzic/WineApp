@@ -21,42 +21,45 @@ struct ShopFilterTagView: View {
         self.viewModel = viewModel
     }
 
-    private func generateContent(in _: GeometryProxy) -> some View {
+    private func generateContent(in g: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
 
         return ZStack(alignment: .topLeading) {
-//            ForEach(self.tags, id: \.id) { tag in
-//                self.itemView(for: tag)
-//                    .padding([.horizontal, .vertical], 4)
-//                    .alignmentGuide(.leading, computeValue: { d in
-//                        if abs(width - d.width) > g.size.width {
-//                            width = 0
-//                            height -= d.height
-//                        }
-//                        let result = width
-//                        if tag.id == self.tags.last!.id {
-//                            width = 0
-//                        } else {
-//                            width -= d.width
-//                        }
-//                        return result
-//                    })
-//                    .alignmentGuide(.top, computeValue: { _ in
-//                        let result = height
-//                        if tag.id == self.tags.last!.id {
-//                            height = 0
-//                        }
-//                        return result
-//                    })
-//            }
+            ForEach(viewModel.tags, id: \.id) { tag in
+                self.itemView(for: tag)
+                    .padding([.horizontal, .vertical], 4)
+                    .alignmentGuide(.leading, computeValue: { d in
+                        if abs(width - d.width) > g.size.width {
+                            width = 0
+                            height -= d.height
+                        }
+                        let result = width
+                        if tag.id == viewModel.tags.last!.id {
+                            width = 0
+                        } else {
+                            width -= d.width
+                        }
+                        return result
+                    })
+                    .alignmentGuide(.top, computeValue: { _ in
+                        let result = height
+                        if tag.id == viewModel.tags.last!.id {
+                            height = 0
+                        }
+                        return result
+                    })
+                    .onTapGesture {
+                        viewModel.delete(tag: tag)
+                    }
+            }
         }.background(viewHeightReader($totalHeight))
     }
 
-    private func itemView(for item: WineFilterItemOutputModel) -> some View {
+    private func itemView(for item: ShopFilterTagModel) -> some View {
         Group {
             HStack(spacing: 4) {
-                Text(item.title.capitalized)
+                Text(item.name)
 
                 Image(systemSymbol: .xmark)
             }
@@ -69,9 +72,6 @@ struct ShopFilterTagView: View {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Asset.Colors.accents.swiftUIColor)
         )
-        .onTapGesture {
-//            action(item)
-        }
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {

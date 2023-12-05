@@ -14,6 +14,15 @@ final class ShopViewModel: ObservableObject {
     @Published private(set) var shopFilterViewModel: ShopFilterViewModel!
     private let injection: ShopViewModelInjection
 
+    var isCitySelected: Bool {
+        shopFilterViewModel.tags.contains { item in
+            if case .city = item.tag {
+                return true
+            }
+            return false
+        }
+    }
+
     init(injection: ShopViewModelInjection) {
         self.injection = injection
         self.shopFilterViewModel = .init(injection: injection.shopFilterViewModelInjection,

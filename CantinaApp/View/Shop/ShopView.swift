@@ -14,35 +14,35 @@ struct ShopView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: [.init()]) {
-                        ForEach(viewModel.filters, id: \.countryName) { filter in
-                            Text(filter.countryName)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal)
-                                .font(Fonts.header2)
-                                .foregroundStyle(Asset.Colors.textSecondary.swiftUIColor)
+                if let shopFilterViewModel = viewModel.shopFilterViewModel {
+                    ShopFilterTagView(viewModel: shopFilterViewModel)
+                        .padding(.top)
+                        .padding(.horizontal)
+                }
 
-                            if filter.cities.count > 1 {
-                                LazyVGrid(columns: [.init()]) {
-                                    ForEach(filter.cities, id: \.id) { city in
-                                        Text(city.name)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .font(Fonts.body1)
-                                            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
-                                            .onTapGesture {
-                                                viewModel.onSelect(city: city)
-                                            }
-                                    }
-                                }
-                                .padding(.horizontal)
-                            } else if let city = filter.cities.first {
-                                shopAddresses(at: city)
+                ScrollView(.vertical) {
+                    if viewModel.filters.count > 1 {
+                        LazyVGrid(columns: [.init()]) {
+                            ForEach(viewModel.filters, id: \.countryName) { filter in
+                                Text(filter.countryName)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal)
+                                    .font(Fonts.header2)
+                                    .foregroundStyle(Asset.Colors.textSecondary.swiftUIColor)
+
+                                countryCities(atFilter: filter)
                             }
                         }
+                        .padding(.top, 20)
+                    } else if let filter = viewModel.filters.first {
+                        if !viewModel.isCitySelected {
+                            Divider()
+                            countryCities(atFilter: filter)
+                        } else if let city = filter.cities.first {
+                            shopAddresses(atCity: city)
+                                .padding(.horizontal)
+                        }
                     }
-                    .padding(.top, 20)
                 }
             }
             .background(Asset.Colors.surface.swiftUIColor)
@@ -116,30 +116,46 @@ private extension ShopView {
         }
     }
 
-    func shopAddresses(at city: CityOutputModel) -> some View {
+    func shopAddresses(atCity: CityOutputModel) -> some View {
         LazyVGrid(columns: [.init()]) {
-            ForEach(city.addresses, id: \.companyName) { address in
+            ForEach(atCity.addresses, id: \.companyName) { address in
                 VStack {
                     Divider()
 
-                    Text(address.companyName)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(Fonts.body1)
-                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
-
-                    Text(address.address)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(Fonts.body1)
-                        .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
-
-                    if let zip = address.zip {
-                        Text(zip)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                    Group {
+                        Text(address.companyName + "\n")
+                            .font(Fonts.button)
+                            +
+                            Text(address.address + "\n")
                             .font(Fonts.body1)
-                            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+                            +
+                            Text(address.zip ?? "")
+                            .font(Fonts.body1)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+                    .textSelection(.enabled)
                 }
             }
         }
+    }
+
+    func cityInfo(atCity: CityOutputModel) -> some View {
+        return Text(atCity.name)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(Fonts.body1)
+            .foregroundStyle(Asset.Colors.textBodyPrimary.swiftUIColor)
+            .onTapGesture {
+                viewModel.onSelect(city: atCity)
+            }
+    }
+
+    func countryCities(atFilter: ShopFilterModel) -> some View {
+        return LazyVGrid(columns: [.init()]) {
+            ForEach(atFilter.cities, id: \.id) { city in
+                cityInfo(atCity: city)
+            }
+        }
+        .padding(.horizontal)
     }
 }

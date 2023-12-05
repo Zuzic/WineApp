@@ -1,9 +1,9 @@
 import Foundation
 
 extension Locale {
-    static func countryCode(from code: String) -> String {
-        guard let isoCode = NSLocale.isoCountryCodes.first(where: { $0 == code }),
-              let name = Locale(identifier: isoCode).localizedString(forRegionCode: isoCode) else { return code }
+    static func countryNameAndFlag(atCode: String) -> String {
+        let name = Locale.countryName(atCode: atCode)
+        guard let isoCode = Locale.countryISOCode(atCode: atCode) else { return name }
         let flag = isoCode
             .unicodeScalars
             .map { 127_397 + $0.value }
@@ -12,5 +12,17 @@ extension Locale {
             .joined()
 
         return "\(flag) \(name)"
+    }
+
+    static func countryName(atCode: String) -> String {
+        guard let isoCode = Locale.countryISOCode(atCode: atCode),
+              let name = Locale(identifier: "en").localizedString(forRegionCode: isoCode.lowercased()) else { return atCode }
+        return name
+    }
+
+    static func countryISOCode(atCode: String) -> String? {
+        debugPrint(NSLocale.isoCountryCodes)
+        guard let isoCode = NSLocale.isoCountryCodes.first(where: { $0 == atCode }) else { return nil }
+        return isoCode
     }
 }

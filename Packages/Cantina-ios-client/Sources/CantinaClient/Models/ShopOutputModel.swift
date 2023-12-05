@@ -7,7 +7,7 @@ struct ShopOutputModel: Codable {
     let address: String
     let zip: String?
     let city: String
-    let state: String
+    let state: String?
     let countryCode: String
 
     enum CodingKeys: String, CodingKey {
@@ -29,7 +29,7 @@ struct ShopOutputModel: Codable {
         self.address = try values.decode(String.self, forKey: .address)
         self.zip = try values.decodeIfPresent(String.self, forKey: .zip)
         self.city = try values.decode(String.self, forKey: .city)
-        self.state = try values.decodeIfPresent(String.self, forKey: .state) ?? "Other"
         self.countryCode = try values.decode(String.self, forKey: .countryCode)
+        self.state = try values.decodeIfPresent(String.self, forKey: .state)
     }
 }

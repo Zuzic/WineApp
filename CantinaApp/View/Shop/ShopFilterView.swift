@@ -113,7 +113,10 @@ private struct ShopStatesFilterView: View {
 
     var body: some View {
         Group {
-            if let states = viewModel.country?.states {
+            if let states = viewModel.country?.states,
+               let first = states.first,
+               first.type != .other
+            {
                 Divider()
 
                 Text(L10n.Shop.Filter.state)
